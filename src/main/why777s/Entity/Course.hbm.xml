@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.Course" table="course" schema="mySchool">
+        <id name="cid">
+            <column name="cid" sql-type="varchar(8)" length="8"/>
+        </id>
+        <property name="cname">
+            <column name="cname" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="ccredit">
+            <column name="ccredit" sql-type="int(11)" not-null="true"/>
+        </property>
+        <many-to-one name="collegeByYxh" class="Entity.College">
+            <column name="yxh" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/cache
+       http://www.springframework.org/schema/cache/spring-cache.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+">
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mySchool"/>
+        <property name="username" value="root"/>
+        <property name="password" value=""/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>Entity.Status</value>
+                <value>Entity.SelectCourse</value>
+                <value>Entity.Student</value>
+                <value>Entity.OpenCourse</value>
+                <value>Entity.Teacher</value>
+                <value>Entity.College</value>
+                <value>Entity.Admin</value>
+                <value>Entity.DroppedCourse</value>
+                <value>Entity.Course</value>
+            </list>
+        </property>
+
+        <property name="mappingLocations">
+            <list>
+                <value>classpath:Entity/Admin.hbm.xml</value>
+                <value>classpath:Entity/College.hbm.xml</value>
+                <value>classpath:Entity/Course.hbm.xml</value>
+                <value>classpath:Entity/DroppedCourse.hbm.xml</value>
+                <value>classpath:Entity/OpenCourse.hbm.xml</value>
+                <value>classpath:Entity/SelectCourse.hbm.xml</value>
+                <value>classpath:Entity/Status.hbm.xml</value>
+                <value>classpath:Entity/Student.hbm.xml</value>
+                <value>classpath:Entity/Teacher.hbm.xml</value>
+                <value>classpath:Entity/OpenCourse.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/mySchool</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
+
+    <bean id="studentDao" class="Dao.impl.StudentDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <bean id="studentService" class="Service.impl.StudentServiceImpl">
+        <property name="studentDao" ref="studentDao"/>
+    </bean>
+
+
+
+    <bean id="transactionManager"  class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
+    <!-- Action -->
+    <bean id="loginBean" class="Controller.loginAction">
+        <property name="studentService" ref="studentService"/>
+    </bean>
+
+    <bean id="courseDao"  class="Dao.impl.CourseDaoImpl" >
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="navigateBean" class="Controller.NavigateAction">
+        <property name="courseService" ref="courseService"/>
+        <property name="openCourseService" ref="openCourseService"/>
+        <property name="selectCourseService" ref="selectCourseService"/>
+    </bean>
+
+    <bean id="courseService"  class="Service.impl.CourseServiceImpl">
+        <property name="courseDao" ref="courseDao"/>
+    </bean>
+
+    <bean id="openCourseDao" class="Dao.impl.OpenCourseDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="openCourseService" class="Service.impl.OpenCourseServiceImpl">
+        <property name="openCourseDao" ref="openCourseDao"/>
+        <property name="course_openCourse_dao" ref="course_openCourse_dao"/>
+    </bean>
+
+    <bean id="course_openCourse_dao" class="Dao.impl.Course_OpenCourse_DaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
+    <bean id="selectCourseBean" class="Controller.SelectCourseAction">
+        <property name="selectCourseService" ref="selectCourseService"/>
+    </bean>
+
+
+    <bean id="selectCourseDao" class="Dao.impl.SelectCourseDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="selectCourseService" class="Service.impl.SelectCourseServiceImpl">
+        <property name="selectCourseDao" ref="selectCourseDao"/>
+        <property name="sC_c_t_dao" ref="sC_c_t_dao"/>
+    </bean>
+
+
+    <bean id="sC_c_t_dao" class="Dao.impl.sC_C_T_DaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+
+
+
+</beans>

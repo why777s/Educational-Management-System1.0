@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.Teacher" table="teacher" schema="mySchool">
+        <id name="tid">
+            <column name="tid" sql-type="varchar(8)" length="8"/>
+        </id>
+        <property name="tname">
+            <column name="tname" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="password">
+            <column name="password" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="sex">
+            <column name="sex" sql-type="varchar(2)" length="2" not-null="true"/>
+        </property>
+        <property name="birthdate">
+            <column name="birthdate" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="title">
+            <column name="title" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="salary">
+            <column name="salary" sql-type="int(11)" not-null="true"/>
+        </property>
+        <many-to-one name="collegeByYxh" class="Entity.College">
+            <column name="yxh" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

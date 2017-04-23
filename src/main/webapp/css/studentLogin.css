@@ -1,0 +1,25 @@
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#header{
+    text-align: center;
+    height: 20%;
+    background-color: lavender;
+}
+
+
+#left_content{
+    float: left;
+    height: 80%;
+    width: 20%;
+    background-color: aquamarine;
+}
+
+#main_content{
+    float: left;
+    width: 80%;
+    height: 80%;
+    background-color: gold;
+
+}
