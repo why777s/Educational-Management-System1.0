@@ -80,6 +80,7 @@
     <!-- Action -->
     <bean id="loginBean" class="Controller.loginAction">
         <property name="studentService" ref="studentService"/>
+        <property name="teacherService" ref="teacherService"/>
     </bean>
 
     <bean id="courseDao"  class="Dao.impl.CourseDaoImpl" >
@@ -90,6 +91,7 @@
         <property name="courseService" ref="courseService"/>
         <property name="openCourseService" ref="openCourseService"/>
         <property name="selectCourseService" ref="selectCourseService"/>
+        <property name="teacherService" ref="teacherService"/>
     </bean>
 
     <bean id="courseService"  class="Service.impl.CourseServiceImpl">
@@ -127,6 +129,15 @@
 
     <bean id="sC_c_t_dao" class="Dao.impl.sC_C_T_DaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="teacherDao" class="Dao.impl.TeacherDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <bean id="teacherService" class="Service.impl.TeacherServiceImpl">
+        <property name="teacherDao" ref="teacherDao"/>
+        <property name="selectCourseDao" ref="selectCourseDao"/>
+        <property name="course_openCourse_dao" ref="course_openCourse_dao"/>
     </bean>
 
 

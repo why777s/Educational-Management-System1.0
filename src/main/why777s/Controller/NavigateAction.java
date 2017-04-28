@@ -3,12 +3,16 @@ package Controller;
 import Dao.impl.CourseDaoImpl;
 import Entity.Course;
 import Entity.OpenCourse;
+import Entity.SelectCourse;
 import Entity.multiQuery.Course_OpenCourse_cid;
 import Service.impl.CourseServiceImpl;
 import Service.impl.OpenCourseServiceImpl;
 import Service.impl.SelectCourseServiceImpl;
+import Service.impl.TeacherServiceImpl;
 import com.opensymphony.xwork2.ActionSupport;
 import Entity.multiQuery.sC_C_T;
+import org.apache.struts2.components.Select;
+
 import java.util.List;
 
 /**
@@ -18,6 +22,11 @@ public class NavigateAction extends ActionSupport {
     private CourseServiceImpl courseService;
     private OpenCourseServiceImpl openCourseService;
     private SelectCourseServiceImpl selectCourseService;
+    private TeacherServiceImpl teacherService;
+
+    public void setTeacherService(TeacherServiceImpl teacherService) {
+        this.teacherService = teacherService;
+    }
 
     public SelectCourseServiceImpl getSelectCourseService() {
         return selectCourseService;
@@ -27,10 +36,20 @@ public class NavigateAction extends ActionSupport {
         this.selectCourseService = selectCourseService;
     }
 
+
     public List<Course> courseList;
     public List<OpenCourse> openCourseList;
     public List<Course_OpenCourse_cid> course_openCourse_cids;
     public List<sC_C_T> sC_c_ts;
+    public List<SelectCourse> scList;
+
+    public List<SelectCourse> getScList() {
+        return scList;
+    }
+
+    public void setScList(List<SelectCourse> scList) {
+        this.scList = scList;
+    }
 
     public List<Course_OpenCourse_cid> getCourse_openCourse_cids() {
         return course_openCourse_cids;
@@ -79,7 +98,6 @@ public class NavigateAction extends ActionSupport {
     }
 
     public String turnSc() throws Exception{
-//        openCourseList = openCourseService.get_all();
         course_openCourse_cids = openCourseService.get_all_inf();
         return SUCCESS;
     }
@@ -88,5 +106,20 @@ public class NavigateAction extends ActionSupport {
         sC_c_ts = selectCourseService.get_all_inf();
         return SUCCESS;
     };
+
+    //处理 教师查看个人开课情况 跳转Action
+    public String turnTschedu() throws Exception{
+        course_openCourse_cids = teacherService.get_tkaike_info();
+        return SUCCESS;
+    };
+
+    //处理 教师登分 跳转Action
+    public String turnEntry() throws Exception{
+        scList = teacherService.get_txk_info();
+
+        course_openCourse_cids = teacherService.get_tkaike_info();
+
+        return SUCCESS;
+    }
 
 }

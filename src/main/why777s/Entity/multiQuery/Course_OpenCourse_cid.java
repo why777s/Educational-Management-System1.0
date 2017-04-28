@@ -17,9 +17,15 @@ public class Course_OpenCourse_cid {
     public Course_OpenCourse_cid() {
     }
 
-    public Course_OpenCourse_cid(String cid) {
+    public Course_OpenCourse_cid(String cid, String time, String semester, String cname, Integer ccredit,String tid) {
         this.cid = cid;
+        this.time = time;
+        this.semester = semester;
+        this.cname = cname;
+        this.ccredit = ccredit;
+        this.tid = tid;
     }
+
 
     public Course_OpenCourse_cid(String cid, String tid, String time, String semester, String cname, Integer ccredit) {
         this.cid = cid;

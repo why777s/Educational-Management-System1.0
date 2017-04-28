@@ -6,13 +6,29 @@
 
 <struts>
     <package name="default" extends="struts-default">
-        <action name="login" class="loginBean" method="studentLogin">
+        <action name="studentlogin" class="loginBean" method="studentLogin">
             <result name="error">/WEB-INF/loginError.jsp</result>
             <result name="success">/WEB-INF/studentLogin.jsp</result>
         </action>
 
+        <action name="teacherlogin" class="loginBean" method="teacherLogin">
+            <result name="success">/WEB-INF/teacherLogin.jsp</result>
+            <result name="error">/WEB-INF/loginError.jsp</result>
+        </action>
+
+
         <action name="test" class="navigateBean">
             <result name="success">/WEB-INF/course_list.jsp</result>
+        </action>
+
+        <action name="turn_Entry" class="navigateBean" method="turnEntry">
+            <result name="success">/WEB-INF/GradeEntry.jsp</result>
+            <result name="error">/WEB-INF/loginError.jsp</result>
+        </action>
+
+        <action name="turn_tSchedule" class="navigateBean" method="turnTschedu">
+            <result name="success">/WEB-INF/tea_schedule.jsp</result>
+            <result name="error">/WEB-INF/loginError.jsp</result>
         </action>
 
         <action name="turn_sC" class="navigateBean" method="turnSc">

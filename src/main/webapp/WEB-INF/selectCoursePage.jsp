@@ -40,12 +40,7 @@
                   选课</a>
             </td>
         </tr>
-
-
     </s:iterator>
-
-
-
 </table>
 
 </body>

@@ -44,6 +44,7 @@ public class OpenCourseServiceImpl implements OpenCourseService {
 //    }
 
 
+    //查询  详细的开课信息 （为了选课）
     @Transactional
     public List<Course_OpenCourse_cid> get_all_inf(){
         String hql="select new Entity.multiQuery.Course_OpenCourse_cid(x.cid,x.tid,x.time,x.semester,y.cname,y.ccredit) " +

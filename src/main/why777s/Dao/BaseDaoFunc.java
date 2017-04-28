@@ -58,6 +58,12 @@ public class BaseDaoFunc<T> implements BaseDao<T> {
                 .createQuery(hql)
                 .list();
     }
+    @SuppressWarnings("unchecked")
+    public List<T> find_withOnePara(String hql, String para) {
+        return (List<T>)getSessionFactory().getCurrentSession()
+                .createQuery(hql).setParameter(0,para)
+                .list();
+    }
 
     //获取所有实体
 //   有问题好像

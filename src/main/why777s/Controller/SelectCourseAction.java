@@ -45,6 +45,8 @@ public class SelectCourseAction extends ActionSupport {
     @Override
     public String execute() throws Exception {
 
+
+
         //获取web Sesssion
         HttpSession session = ServletActionContext.getRequest().getSession();
 
@@ -65,9 +67,7 @@ public class SelectCourseAction extends ActionSupport {
 
 //        selectCourse.setSelectCoursePK(selectCoursePK);
 
-         selectCourseService.save(selectCourse);
-
-
+        selectCourseService.save(selectCourse);
         System.out.println("开始选课处理！！！");
         return SUCCESS;
     }

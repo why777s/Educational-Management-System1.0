@@ -1,7 +1,9 @@
 package Controller;
 
 import Entity.Student;
+import Entity.Teacher;
 import Service.impl.StudentServiceImpl;
+import Service.impl.TeacherServiceImpl;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
@@ -21,6 +23,11 @@ public class loginAction extends ActionSupport {
     private String userID;
     private String password;
     private StudentServiceImpl studentService;
+    private TeacherServiceImpl teacherService;
+
+    public void setTeacherService(TeacherServiceImpl teacherService) {
+        this.teacherService = teacherService;
+    }
 
     public void setStudentService(StudentServiceImpl studentService) {
         this.studentService = studentService;
@@ -42,6 +49,8 @@ public class loginAction extends ActionSupport {
         this.password = password;
     }
 
+
+    //这个没用到的不用管
     @Override
     public String execute() throws Exception {
         if (getUserID().equals("admin")){
@@ -49,6 +58,21 @@ public class loginAction extends ActionSupport {
         }else
             return ERROR;
     }
+
+    public String teacherLogin() throws Exception{
+        Teacher teacher = new Teacher();
+        teacher.setTid(getUserID());
+        teacher.setPassword(getPassword());
+        if (teacherService.login(teacher)){
+            ActionContext actionContext = ActionContext.getContext();
+            Map<String,Object> session = actionContext.getSession();
+            session.put("userID",teacher.getTid());
+            return SUCCESS;
+        }else
+            return ERROR;
+    }
+
+
 
 
     public String studentLogin() throws Exception{
@@ -64,7 +88,6 @@ public class loginAction extends ActionSupport {
             ActionContext actionContext = ActionContext.getContext();
             Map<String,Object> session = actionContext.getSession();
             session.put("userID",student.getSid());
-            session.put("userName",student.getSname());
 
 
             return SUCCESS;
