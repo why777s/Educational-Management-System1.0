@@ -1,10 +1,13 @@
 package Entity;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by wangzhaojun on 2017/4/17.
+ * Created by wangzhaojun on 2017/5/1.
  */
+@Entity
+@Table(name = "teacher")
 public class Teacher {
     private String tid;
     private String tname;
@@ -15,6 +18,8 @@ public class Teacher {
     private Integer salary;
     private College collegeByYxh;
 
+    @Id
+    @Column(name = "tid", nullable = false, length = 8)
     public String getTid() {
         return tid;
     }
@@ -23,6 +28,8 @@ public class Teacher {
         this.tid = tid;
     }
 
+    @Basic
+    @Column(name = "tname", nullable = false, length = 45)
     public String getTname() {
         return tname;
     }
@@ -31,6 +38,8 @@ public class Teacher {
         this.tname = tname;
     }
 
+    @Basic
+    @Column(name = "password", nullable = false, length = 45)
     public String getPassword() {
         return password;
     }
@@ -39,6 +48,8 @@ public class Teacher {
         this.password = password;
     }
 
+    @Basic
+    @Column(name = "sex", nullable = true, length = 2)
     public String getSex() {
         return sex;
     }
@@ -47,6 +58,8 @@ public class Teacher {
         this.sex = sex;
     }
 
+    @Basic
+    @Column(name = "birthdate", nullable = true)
     public Timestamp getBirthdate() {
         return birthdate;
     }
@@ -55,6 +68,8 @@ public class Teacher {
         this.birthdate = birthdate;
     }
 
+    @Basic
+    @Column(name = "title", nullable = true, length = 45)
     public String getTitle() {
         return title;
     }
@@ -63,6 +78,8 @@ public class Teacher {
         this.title = title;
     }
 
+    @Basic
+    @Column(name = "salary", nullable = true)
     public Integer getSalary() {
         return salary;
     }
@@ -101,6 +118,8 @@ public class Teacher {
         return result;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "yxh", referencedColumnName = "yxh")
     public College getCollegeByYxh() {
         return collegeByYxh;
     }

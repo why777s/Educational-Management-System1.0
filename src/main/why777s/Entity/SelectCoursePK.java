@@ -1,10 +1,11 @@
 package Entity;
 
-import javax.persistence.Embedded;
+import javax.persistence.Column;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by wangzhaojun on 2017/4/17.
+ * Created by wangzhaojun on 2017/5/1.
  */
 public class SelectCoursePK implements Serializable {
     private String sid;
@@ -15,6 +16,8 @@ public class SelectCoursePK implements Serializable {
     public SelectCoursePK() {
     }
 
+    @Column(name = "sid", nullable = false, length = 8)
+    @Id
     public String getSid() {
         return sid;
     }
@@ -23,6 +26,8 @@ public class SelectCoursePK implements Serializable {
         this.sid = sid;
     }
 
+    @Column(name = "semester", nullable = false, length = 45)
+    @Id
     public String getSemester() {
         return semester;
     }
@@ -31,6 +36,8 @@ public class SelectCoursePK implements Serializable {
         this.semester = semester;
     }
 
+    @Column(name = "cid", nullable = false, length = 8)
+    @Id
     public String getCid() {
         return cid;
     }
@@ -39,6 +46,8 @@ public class SelectCoursePK implements Serializable {
         this.cid = cid;
     }
 
+    @Column(name = "tid", nullable = false, length = 8)
+    @Id
     public String getTid() {
         return tid;
     }

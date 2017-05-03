@@ -1,14 +1,11 @@
 package Service.impl;
 
 import Dao.impl.*;
-import Entity.OpenCourse;
 import Entity.SelectCourse;
-import Entity.Student;
 import Entity.Teacher;
 import Entity.multiQuery.Course_OpenCourse_cid;
 import Service.TeacherService;
 import org.apache.struts2.ServletActionContext;
-import org.hibernate.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;

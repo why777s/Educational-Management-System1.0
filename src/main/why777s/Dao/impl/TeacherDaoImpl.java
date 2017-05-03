@@ -1,6 +1,5 @@
 package Dao.impl;
 
-import Dao.BaseDao;
 import Dao.BaseDaoFunc;
 import Entity.Teacher;
 

@@ -1,24 +1,12 @@
 package Service.impl;
 
-import Dao.BaseDao;
-import Dao.BaseDaoFunc;
 import Dao.impl.Course_OpenCourse_DaoImpl;
 import Dao.impl.OpenCourseDaoImpl;
-import Entity.Course;
 import Entity.OpenCourse;
 import Entity.multiQuery.Course_OpenCourse_cid;
-import Service.CourseService;
 import Service.OpenCourseService;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.internal.StandardServiceRegistryImpl;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.security.auth.login.AppConfigurationEntry;
-import javax.security.auth.login.Configuration;
 import java.util.List;
 
 /**
@@ -52,6 +40,7 @@ public class OpenCourseServiceImpl implements OpenCourseService {
                 "where x.cid=y.cid";
         return course_openCourse_dao.find(hql);
     }
+
 
 
     //多表查询问题

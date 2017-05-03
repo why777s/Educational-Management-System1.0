@@ -1,6 +1,5 @@
 package Controller;
 
-import Dao.impl.CourseDaoImpl;
 import Entity.Course;
 import Entity.OpenCourse;
 import Entity.SelectCourse;
@@ -11,7 +10,6 @@ import Service.impl.SelectCourseServiceImpl;
 import Service.impl.TeacherServiceImpl;
 import com.opensymphony.xwork2.ActionSupport;
 import Entity.multiQuery.sC_C_T;
-import org.apache.struts2.components.Select;
 
 import java.util.List;
 
@@ -119,6 +117,13 @@ public class NavigateAction extends ActionSupport {
 
         course_openCourse_cids = teacherService.get_tkaike_info();
 
+        return SUCCESS;
+    }
+
+
+    //退课
+    public String turnTk() throws Exception{
+        scList = selectCourseService.get_all_ById();
         return SUCCESS;
     }
 

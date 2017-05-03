@@ -1,8 +1,12 @@
 package Entity;
 
+import javax.persistence.*;
+
 /**
- * Created by wangzhaojun on 2017/4/17.
+ * Created by wangzhaojun on 2017/5/1.
  */
+@Entity
+@Table(name = "student")
 public class Student {
     private String sid;
     private String sname;
@@ -12,6 +16,8 @@ public class Student {
     private Integer scredit;
     private College collegeByYxh;
 
+    @Id
+    @Column(name = "sid", nullable = false, length = 8)
     public String getSid() {
         return sid;
     }
@@ -20,6 +26,8 @@ public class Student {
         this.sid = sid;
     }
 
+    @Basic
+    @Column(name = "sname", nullable = false, length = 45)
     public String getSname() {
         return sname;
     }
@@ -28,6 +36,8 @@ public class Student {
         this.sname = sname;
     }
 
+    @Basic
+    @Column(name = "password", nullable = false, length = 45)
     public String getPassword() {
         return password;
     }
@@ -36,6 +46,8 @@ public class Student {
         this.password = password;
     }
 
+    @Basic
+    @Column(name = "sex", nullable = true, length = 2)
     public String getSex() {
         return sex;
     }
@@ -44,6 +56,8 @@ public class Student {
         this.sex = sex;
     }
 
+    @Basic
+    @Column(name = "jiguan", nullable = true, length = 45)
     public String getJiguan() {
         return jiguan;
     }
@@ -52,6 +66,8 @@ public class Student {
         this.jiguan = jiguan;
     }
 
+    @Basic
+    @Column(name = "scredit", nullable = true)
     public Integer getScredit() {
         return scredit;
     }
@@ -88,6 +104,8 @@ public class Student {
         return result;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "yxh", referencedColumnName = "yxh")
     public College getCollegeByYxh() {
         return collegeByYxh;
     }

@@ -27,9 +27,10 @@
         <p>常用功能</p>
         <ul>
             <li>
-                <a href="<s:url action="turn_sC"/> " target="cont">选课</a></li>
+                <a href="<s:url action="turn_sC"/> " target="cont">选课</a>
+            </li>
             <li>
-                <a>退课</a>
+                <a href="<s:url action="turn_tK"/>" target="cont" >退课</a>
             </li>
         </ul>
         <p>数据查询</p>

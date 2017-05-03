@@ -10,6 +10,11 @@
 <html>
 <head>
     <title>选课</title>
+    <script>
+        <s:if test="hasFieldErrors()">
+            alert("选课失败！")
+        </s:if>
+    </script>
 
 </head>
 <body bgcolor="#f5deb3">

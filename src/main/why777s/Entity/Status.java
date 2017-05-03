@@ -1,11 +1,18 @@
 package Entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
- * Created by wangzhaojun on 2017/4/17.
+ * Created by wangzhaojun on 2017/5/1.
  */
+@Entity
 public class Status {
     private byte permitSelect;
 
+    @Id
+    @Column(name = "permit_select", nullable = false)
     public byte getPermitSelect() {
         return permitSelect;
     }

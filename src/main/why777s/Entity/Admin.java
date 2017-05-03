@@ -1,13 +1,19 @@
 package Entity;
 
+import javax.persistence.*;
+
 /**
- * Created by wangzhaojun on 2017/4/17.
+ * Created by wangzhaojun on 2017/5/1.
  */
+@Entity
+@Table(name = "admin")
 public class Admin {
     private String adminId;
     private String adminName;
     private String password;
 
+    @Id
+    @Column(name = "adminId", nullable = false, length = 8)
     public String getAdminId() {
         return adminId;
     }
@@ -16,6 +22,8 @@ public class Admin {
         this.adminId = adminId;
     }
 
+    @Basic
+    @Column(name = "adminName", nullable = false, length = 45)
     public String getAdminName() {
         return adminName;
     }
@@ -24,6 +32,8 @@ public class Admin {
         this.adminName = adminName;
     }
 
+    @Basic
+    @Column(name = "password", nullable = false, length = 45)
     public String getPassword() {
         return password;
     }

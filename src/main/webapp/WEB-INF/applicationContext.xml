@@ -16,7 +16,7 @@
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/mySchool"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mySchool?useUnicode=true&amp;characterEncoding=UTF8"/>
         <property name="username" value="root"/>
         <property name="password" value=""/>
     </bean>
@@ -32,29 +32,28 @@
                 <value>Entity.Teacher</value>
                 <value>Entity.College</value>
                 <value>Entity.Admin</value>
-                <value>Entity.DroppedCourse</value>
                 <value>Entity.Course</value>
             </list>
         </property>
 
-        <property name="mappingLocations">
-            <list>
-                <value>classpath:Entity/Admin.hbm.xml</value>
-                <value>classpath:Entity/College.hbm.xml</value>
-                <value>classpath:Entity/Course.hbm.xml</value>
-                <value>classpath:Entity/DroppedCourse.hbm.xml</value>
-                <value>classpath:Entity/OpenCourse.hbm.xml</value>
-                <value>classpath:Entity/SelectCourse.hbm.xml</value>
-                <value>classpath:Entity/Status.hbm.xml</value>
-                <value>classpath:Entity/Student.hbm.xml</value>
-                <value>classpath:Entity/Teacher.hbm.xml</value>
-                <value>classpath:Entity/OpenCourse.hbm.xml</value>
-            </list>
-        </property>
+        <!--<property name="mappingLocations">-->
+            <!--<list>-->
+                <!--<value>classpath:Entity/Admin.hbm.xml</value>-->
+                <!--<value>classpath:Entity/College.hbm.xml</value>-->
+                <!--<value>classpath:Entity/Course.hbm.xml</value>-->
+                <!--<value>classpath:Entity/OpenCourse.hbm.xml</value>-->
+                <!--<value>classpath:Entity/SelectCourse.hbm.xml</value>-->
+                <!--<value>classpath:Entity/Status.hbm.xml</value>-->
+                <!--<value>classpath:Entity/Student.hbm.xml</value>-->
+                <!--<value>classpath:Entity/Teacher.hbm.xml</value>-->
+                <!--<value>classpath:Entity/OpenCourse.hbm.xml</value>-->
+            <!--</list>-->
+        <!--</property>-->
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/mySchool</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/mySchool?useUnicode=true&amp;characterEncoding=UTF8</prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+                <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>
     </bean>
@@ -81,7 +80,17 @@
     <bean id="loginBean" class="Controller.loginAction">
         <property name="studentService" ref="studentService"/>
         <property name="teacherService" ref="teacherService"/>
+        <property name="adminService" ref="adminService"/>
     </bean>
+
+    <bean id="adminDao" class="Dao.impl.AdminDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="adminService" class="Service.impl.AdminServiceImpl">
+        <property name="adminDao" ref="adminDao"/>
+    </bean>
+
 
     <bean id="courseDao"  class="Dao.impl.CourseDaoImpl" >
         <property name="sessionFactory" ref="sessionFactory"/>
@@ -112,8 +121,11 @@
     </bean>
 
 
-    <bean id="selectCourseBean" class="Controller.SelectCourseAction">
+    <bean id="selectCourseBean" class="Controller.FuncAction">
         <property name="selectCourseService" ref="selectCourseService"/>
+        <property name="teacherService" ref="teacherService"/>
+        <property name="openCourseService" ref="openCourseService"/>
+        <property name="selectCourseDao" ref="selectCourseDao"/>
     </bean>
 
 

@@ -1,14 +1,21 @@
 package Entity;
 
+import javax.persistence.*;
+
 /**
- * Created by wangzhaojun on 2017/4/17.
+ * Created by wangzhaojun on 2017/5/1.
  */
+@Table(name = "openCourse")
+@Entity
+@IdClass(OpenCoursePK.class)
 public class OpenCourse {
     private String cid;
     private String tid;
     private String time;
     private String semester;
 
+    @Id
+    @Column(name = "cid", nullable = false, length = 8)
     public String getCid() {
         return cid;
     }
@@ -17,6 +24,8 @@ public class OpenCourse {
         this.cid = cid;
     }
 
+    @Id
+    @Column(name = "tid", nullable = false, length = 8)
     public String getTid() {
         return tid;
     }
@@ -25,6 +34,8 @@ public class OpenCourse {
         this.tid = tid;
     }
 
+    @Basic
+    @Column(name = "time", nullable = true, length = 45)
     public String getTime() {
         return time;
     }
@@ -33,6 +44,8 @@ public class OpenCourse {
         this.time = time;
     }
 
+    @Id
+    @Column(name = "semester", nullable = false, length = 45)
     public String getSemester() {
         return semester;
     }

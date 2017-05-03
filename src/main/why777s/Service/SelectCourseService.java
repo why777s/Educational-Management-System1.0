@@ -19,5 +19,12 @@ public interface SelectCourseService {
     //查询当前已选课程
     List<sC_C_T> get_all_inf();
 
+    //查询当前登录学生的选修信息
+    List<SelectCourse> get_all_ById();
+
+    void deletedelete(SelectCoursePK selectCoursePK);
+
+
+
 
 }

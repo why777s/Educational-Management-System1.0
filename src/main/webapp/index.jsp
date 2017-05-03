@@ -11,8 +11,13 @@
         function t_login() {
             targetForm = document.forms[0];
             targetForm.action ="teacherlogin";
-
         }
+
+        function a_login() {
+            targetForm = document.forms[0];
+            targetForm.action = "adminlogin";
+        }
+
     </script>
 </head>
 <body>
@@ -20,9 +25,11 @@
 <s:form action="studentlogin">
     <s:textfield name="userID"/>
     <s:password name="password"/>
+
     <input type="radio" name="logintype" value="学生" onclick="s_login()">学生
     <input type="radio" name="logintype" value="教师" onclick="t_login()">教师
-    <s:submit value="   登录"/>
+    <input type="radio" name="logintype" value="管理员" onclick="a_login()">管理员
+    <s:submit value="登录"/>
 </s:form>
 </body>
 </html>

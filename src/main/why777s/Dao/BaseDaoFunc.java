@@ -46,7 +46,7 @@ public class BaseDaoFunc<T> implements BaseDao<T> {
     public void delete(Class<T> entityClass, Serializable id) {
         getSessionFactory().getCurrentSession()
                 .createQuery("delete"+entityClass.getSimpleName()
-                    + "en where en.id = ?0")
+                    + "en where en.id = ?")
                 .setParameter("0",id)
                 .executeUpdate();
     }

@@ -16,6 +16,11 @@
             <result name="error">/WEB-INF/loginError.jsp</result>
         </action>
 
+        <action name="adminlogin" class="loginBean" method="adminLogin">
+            <result name="success">/WEB-INF/adminLogin.jsp</result>
+            <result name="error">/WEB-INF/loginError.jsp</result>
+        </action>
+
 
         <action name="test" class="navigateBean">
             <result name="success">/WEB-INF/course_list.jsp</result>
@@ -35,9 +40,20 @@
             <result name="success">/WEB-INF/selectCoursePage.jsp</result>
         </action>
 
+        <action name="turn_tK" class="navigateBean" method="turnTk">
+            <result name="success">/WEB-INF/tuike.jsp</result>
+            <result name="error">/WEB-INF/loginError.jsp</result>
+        </action>
 
-        <action name="sC" class="selectCourseBean">
+        <!--退课Action-->
+        <action name="tK" class="selectCourseBean" method="tuike">
             <result name="success">/WEB-INF/loginSuc.jsp</result>
+            <result name="error">/WEB-INF/loginError.jsp</result>
+        </action>
+        <!-- 选课Action -->
+        <action name="sC" class="selectCourseBean" method="xuanke">
+            <result name="success">/WEB-INF/selectCoursePage.jsp</result>
+            <result name="error">/WEB-INF/selectCoursePage.jsp</result>
         </action>
 
         <action name="schedule" class="navigateBean" method="schedule">

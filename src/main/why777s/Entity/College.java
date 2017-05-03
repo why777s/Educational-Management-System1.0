@@ -1,13 +1,19 @@
 package Entity;
 
+import javax.persistence.*;
+
 /**
- * Created by wangzhaojun on 2017/4/17.
+ * Created by wangzhaojun on 2017/5/1.
  */
+@Entity
+@Table(name = "college")
 public class College {
     private String yxh;
     private String yname;
     private String tel;
 
+    @Id
+    @Column(name = "yxh", nullable = false, length = 2)
     public String getYxh() {
         return yxh;
     }
@@ -16,6 +22,8 @@ public class College {
         this.yxh = yxh;
     }
 
+    @Basic
+    @Column(name = "yname", nullable = false, length = 45)
     public String getYname() {
         return yname;
     }
@@ -24,6 +32,8 @@ public class College {
         this.yname = yname;
     }
 
+    @Basic
+    @Column(name = "tel", nullable = true, length = 8)
     public String getTel() {
         return tel;
     }

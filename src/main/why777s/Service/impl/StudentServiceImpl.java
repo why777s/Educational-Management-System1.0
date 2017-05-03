@@ -5,8 +5,6 @@ import Entity.Student;
 import Service.StudentSerivce;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 /**
  * Created by wangzhaojun on 2017/4/17.
  */
@@ -29,9 +27,6 @@ public class StudentServiceImpl implements StudentSerivce {
         else {
             System.out.println(stu);
             System.out.println("该学生基本信息：");
-            System.out.println(stu.getSid());
-            System.out.println(stu.getSname());
-            System.out.println(stu.getCollegeByYxh());
             return stu.getPassword().equals(student.getPassword());
         }
     }

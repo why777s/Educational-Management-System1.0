@@ -8,6 +8,7 @@ import Service.SelectCourseService;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Table;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import Dao.impl.sC_C_T_DaoImpl;
@@ -27,9 +28,15 @@ public class SelectCourseServiceImpl implements SelectCourseService {
         this.selectCourseDao = selectCourseDao;
     }
 
+//    @Transactional
+//    public SelectCoursePK save(SelectCourse selectCourse) {
+//        return (SelectCoursePK) selectCourseDao.save(selectCourse);
+//    }
+
+
     @Transactional
     public SelectCoursePK save(SelectCourse selectCourse) {
-        return (SelectCoursePK)selectCourseDao.save(selectCourse);
+        return (SelectCoursePK) selectCourseDao.save(selectCourse);
     }
 
     public List<SelectCourse> get_all() {
@@ -50,5 +57,25 @@ public class SelectCourseServiceImpl implements SelectCourseService {
                 "where x.cid =y.cid and x.cid=z.cid and x.tid=z.tid " +
                 "and x.sid = "+ sid;
         return sC_c_t_dao.find(hql);
+    }
+
+
+    // 根据复合主键类删除
+    @Transactional
+    public void deletedelete(SelectCoursePK selectCoursePK){
+        SelectCourse selectCourse = selectCourseDao.get(SelectCourse.class,selectCoursePK);
+        selectCourseDao.delete(selectCourse);
+    }
+
+
+
+
+    @Transactional
+    public List<SelectCourse> get_all_ById() {
+        HttpSession session = ServletActionContext.getRequest().getSession();
+        String sid = (String)session.getAttribute("userID");
+        String hql = "from SelectCourse " +
+                "where sid=?";
+        return selectCourseDao.find_withOnePara(hql,sid);
     }
 }

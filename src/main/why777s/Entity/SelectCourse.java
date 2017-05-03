@@ -1,12 +1,14 @@
 package Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.IdClass;
+import javax.persistence.*;
 
 /**
- * Created by wangzhaojun on 2017/4/17.
+ * Created by wangzhaojun on 2017/5/1.
  */
-//@IdClass(SelectCoursePK.class)
+
+@Entity
+@Table(name = "selectCourse")
+@IdClass(SelectCoursePK.class)
 public class SelectCourse {
     private String sid;
     private String semester;
@@ -17,19 +19,9 @@ public class SelectCourse {
     private String zpcj;
     private Course courseByCid;
 
-    public SelectCourse() {
-    }
 
-    private SelectCoursePK selectCoursePK;
-
-    public SelectCoursePK getSelectCoursePK() {
-        return selectCoursePK;
-    }
-
-    public void setSelectCoursePK(SelectCoursePK selectCoursePK) {
-        this.selectCoursePK = selectCoursePK;
-    }
-
+    @Id
+    @Column(name = "sid", nullable = false, length = 8)
     public String getSid() {
         return sid;
     }
@@ -38,6 +30,8 @@ public class SelectCourse {
         this.sid = sid;
     }
 
+    @Id
+    @Column(name = "semester", nullable = false, length = 45)
     public String getSemester() {
         return semester;
     }
@@ -46,6 +40,8 @@ public class SelectCourse {
         this.semester = semester;
     }
 
+    @Id
+    @Column(name = "cid", nullable = false, length = 8)
     public String getCid() {
         return cid;
     }
@@ -54,6 +50,8 @@ public class SelectCourse {
         this.cid = cid;
     }
 
+    @Id
+    @Column(name = "tid", nullable = false, length = 8)
     public String getTid() {
         return tid;
     }
@@ -62,6 +60,8 @@ public class SelectCourse {
         this.tid = tid;
     }
 
+    @Basic
+    @Column(name = "pscj", nullable = true)
     public Integer getPscj() {
         return pscj;
     }
@@ -70,6 +70,8 @@ public class SelectCourse {
         this.pscj = pscj;
     }
 
+    @Basic
+    @Column(name = "kscj", nullable = true, length = 45)
     public String getKscj() {
         return kscj;
     }
@@ -78,6 +80,8 @@ public class SelectCourse {
         this.kscj = kscj;
     }
 
+    @Basic
+    @Column(name = "zpcj", nullable = true, length = 45)
     public String getZpcj() {
         return zpcj;
     }
@@ -116,9 +120,13 @@ public class SelectCourse {
         return result;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "cid", referencedColumnName = "cid", nullable = false,insertable = false,updatable = false)
     public Course getCourseByCid() {
         return courseByCid;
     }
+
+
 
     public void setCourseByCid(Course courseByCid) {
         this.courseByCid = courseByCid;

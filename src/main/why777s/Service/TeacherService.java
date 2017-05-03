@@ -1,6 +1,5 @@
 package Service;
 
-import Dao.impl.TeacherDaoImpl;
 import Entity.SelectCourse;
 import Entity.Teacher;
 import Entity.multiQuery.Course_OpenCourse_cid;

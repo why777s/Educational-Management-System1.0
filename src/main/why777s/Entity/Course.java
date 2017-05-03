@@ -1,14 +1,20 @@
 package Entity;
 
+import javax.persistence.*;
+
 /**
- * Created by wangzhaojun on 2017/4/17.
+ * Created by wangzhaojun on 2017/5/1.
  */
+@Entity
+@Table(name = "course")
 public class Course {
     private String cid;
     private String cname;
     private Integer ccredit;
     private College collegeByYxh;
 
+    @Id
+    @Column(name = "cid", nullable = false, length = 8)
     public String getCid() {
         return cid;
     }
@@ -17,6 +23,8 @@ public class Course {
         this.cid = cid;
     }
 
+    @Basic
+    @Column(name = "cname", nullable = false, length = 45)
     public String getCname() {
         return cname;
     }
@@ -25,6 +33,8 @@ public class Course {
         this.cname = cname;
     }
 
+    @Basic
+    @Column(name = "ccredit", nullable = true)
     public Integer getCcredit() {
         return ccredit;
     }
@@ -55,6 +65,8 @@ public class Course {
         return result;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "yxh", referencedColumnName = "yxh")
     public College getCollegeByYxh() {
         return collegeByYxh;
     }

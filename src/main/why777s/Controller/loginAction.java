@@ -1,19 +1,14 @@
 package Controller;
 
+import Entity.Admin;
 import Entity.Student;
 import Entity.Teacher;
+import Service.impl.AdminServiceImpl;
 import Service.impl.StudentServiceImpl;
 import Service.impl.TeacherServiceImpl;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import org.apache.struts2.ServletActionContext;
-import org.springframework.context.ApplicationContext;
 
-import javax.servlet.http.*;
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionContext;
-import java.util.Enumeration;
 import java.util.Map;
 
 /**
@@ -24,6 +19,15 @@ public class loginAction extends ActionSupport {
     private String password;
     private StudentServiceImpl studentService;
     private TeacherServiceImpl teacherService;
+    private AdminServiceImpl adminService;
+
+    public AdminServiceImpl getAdminService() {
+        return adminService;
+    }
+
+    public void setAdminService(AdminServiceImpl adminService) {
+        this.adminService = adminService;
+    }
 
     public void setTeacherService(TeacherServiceImpl teacherService) {
         this.teacherService = teacherService;
@@ -72,9 +76,6 @@ public class loginAction extends ActionSupport {
             return ERROR;
     }
 
-
-
-
     public String studentLogin() throws Exception{
         Student student = new Student();
         student.setSid(getUserID());
@@ -88,13 +89,25 @@ public class loginAction extends ActionSupport {
             ActionContext actionContext = ActionContext.getContext();
             Map<String,Object> session = actionContext.getSession();
             session.put("userID",student.getSid());
-
-
             return SUCCESS;
         }
         else
             return ERROR;
-
     }
+
+    public String adminLogin() throws Exception{
+        Admin admin = new Admin();
+        admin.setAdminId(getUserID());
+        admin.setPassword(getPassword());
+        if (adminService.login(admin)){
+            ActionContext actionContext = ActionContext.getContext();
+            Map<String,Object> session = actionContext.getSession();
+            session.put("userID",admin.getAdminId());
+            return SUCCESS;
+        }
+        else
+            return ERROR;
+    }
+
 
 }
