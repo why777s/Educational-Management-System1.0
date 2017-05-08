@@ -5,6 +5,8 @@ import Entity.Student;
 import Service.StudentSerivce;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by wangzhaojun on 2017/4/17.
  */
@@ -29,5 +31,20 @@ public class StudentServiceImpl implements StudentSerivce {
             System.out.println("该学生基本信息：");
             return stu.getPassword().equals(student.getPassword());
         }
+    }
+    @Transactional
+    public Student get_stu(String id) {
+        return studentDao.get(Student.class,id);
+    }
+
+    @Transactional
+    public void update_stu(Student student) {
+        studentDao.update(student);
+    }
+
+    //返回所有学生
+    @Transactional
+    public List<Student> getallstu() {
+        return studentDao.findall(Student.class);
     }
 }

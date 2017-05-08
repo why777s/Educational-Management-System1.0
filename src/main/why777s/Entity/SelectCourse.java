@@ -19,6 +19,9 @@ public class SelectCourse {
     private String zpcj;
     private Course courseByCid;
 
+    private OpenCourse openCourseByOpenCoursePK;
+
+
 
     @Id
     @Column(name = "sid", nullable = false, length = 8)
@@ -119,7 +122,6 @@ public class SelectCourse {
         result = 31 * result + (zpcj != null ? zpcj.hashCode() : 0);
         return result;
     }
-
     @ManyToOne
     @JoinColumn(name = "cid", referencedColumnName = "cid", nullable = false,insertable = false,updatable = false)
     public Course getCourseByCid() {
@@ -130,5 +132,22 @@ public class SelectCourse {
 
     public void setCourseByCid(Course courseByCid) {
         this.courseByCid = courseByCid;
+    }
+
+
+    @ManyToOne
+    @JoinColumns(
+            {
+                    @JoinColumn(name = "cid",referencedColumnName = "cid",insertable = false,updatable = false),
+                    @JoinColumn(name = "tid",referencedColumnName = "tid",insertable = false,updatable = false),
+                    @JoinColumn(name = "semester",referencedColumnName = "semester",insertable = false,updatable = false)
+            }
+    )
+    public OpenCourse getOpenCourseByOpenCoursePK() {
+        return openCourseByOpenCoursePK;
+    }
+
+    public void setOpenCourseByOpenCoursePK(OpenCourse openCourseByOpenCoursePK) {
+        this.openCourseByOpenCoursePK = openCourseByOpenCoursePK;
     }
 }

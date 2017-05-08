@@ -24,6 +24,10 @@ public interface SelectCourseService {
 
     void deletedelete(SelectCoursePK selectCoursePK);
 
+    SelectCourse get_selectCourse(SelectCoursePK selectCoursePK);
+
+    boolean timeConflict(String time,String id);
+
 
 
 

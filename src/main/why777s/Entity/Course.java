@@ -66,7 +66,7 @@ public class Course {
     }
 
     @ManyToOne
-    @JoinColumn(name = "yxh", referencedColumnName = "yxh")
+    @JoinColumn(name = "yxh", referencedColumnName = "yxh",insertable = false,updatable = false)
     public College getCollegeByYxh() {
         return collegeByYxh;
     }

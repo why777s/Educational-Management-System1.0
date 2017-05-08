@@ -9,26 +9,52 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%
+        String path = request.getContextPath();
+        String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    %>
+
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="<%=basePath%>/bootstrap/js/bootstrap.js"></script>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="<%=basePath%>/bootstrap/css/bootstrap.css" rel="stylesheet">
+
     <title>选课</title>
     <script>
-        <s:if test="hasFieldErrors()">
-            alert("选课失败！")
+        <s:if test="#request.message!=null">
+            alert("<s:property value="#request.message"/>")
         </s:if>
     </script>
 
 </head>
-<body bgcolor="#f5deb3">
-在这个页面选课
-<table bgcolor="#adff2f" border="1px">
+<body >
+<table class="table table-hover table-bordered">
     <tr>
         <th>课程号</th>
         <th>课程名</th>
         <th>教师号</th>
         <th>上课时间</th>
         <th>学分</th>
+        <th>操作</th>
     </tr>
-    <s:iterator value="#request.course_openCourse_cids" id="kaikelist">
-        <tr>
+    <s:iterator status="st" value="#request.course_openCourse_cids" id="kaikelist">
+        <s:if test="#st.getCount()%4==0">
+            <tr class="success">
+        </s:if>
+        <s:elseif test="#st.getCount()%4==1">
+            <tr class="error">
+        </s:elseif>
+        <s:elseif test="#st.getCount()%4==2">
+            <tr class="warning">
+        </s:elseif>
+        <s:elseif test="#st.getCount()%4==3">
+            <tr class="info">
+        </s:elseif>
             <td> <s:property value="#kaikelist.cid"/> </td>
             <td> <s:property value="#kaikelist.cname"/> </td>
             <td> <s:property value="#kaikelist.tid"/> </td>

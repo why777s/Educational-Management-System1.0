@@ -13,4 +13,6 @@ public interface TeacherService {
     boolean login(Teacher teacher);
     List<Course_OpenCourse_cid> get_tkaike_info();
     List<SelectCourse> get_txk_info();
+
+    List<Teacher> getallTea();
 }

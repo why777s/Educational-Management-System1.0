@@ -16,7 +16,7 @@
     %>
 </head>
 <body>
-<table bgcolor="#fff5ee" border="1px solid">
+<table  border="1px solid">
     <tr>
         <th>课程号</th>
         <th>课程名</th>

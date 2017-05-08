@@ -39,7 +39,7 @@
                 <a href="<s:url action="test"/>" target="cont">查看课程</a>
             </li>
             <li>
-                <a href="<s:url action="schedule"/>" target="cont">查看课表</a>
+                <a href="<s:url action="schedule"/>" target="cont">查看个人信息</a>
             </li>
             <li>删除课程查询</li>
         </ul>

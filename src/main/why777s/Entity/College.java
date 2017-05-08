@@ -12,6 +12,8 @@ public class College {
     private String yname;
     private String tel;
 
+
+
     @Id
     @Column(name = "yxh", nullable = false, length = 2)
     public String getYxh() {
@@ -63,4 +65,5 @@ public class College {
         result = 31 * result + (tel != null ? tel.hashCode() : 0);
         return result;
     }
+
 }

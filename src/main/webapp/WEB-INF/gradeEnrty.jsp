@@ -36,7 +36,7 @@
 
     </script>
 </head>
-<body bgcolor="#f4a460">
+<body >
 登分页面
 <h4>请选择您要登分的课程</h4>
 

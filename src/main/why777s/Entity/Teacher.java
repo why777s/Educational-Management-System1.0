@@ -1,6 +1,7 @@
 package Entity;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
@@ -13,7 +14,8 @@ public class Teacher {
     private String tname;
     private String password;
     private String sex;
-    private Timestamp birthdate;
+    private Date birthdate;
+//    private Timestamp birthdate;
     private String title;
     private Integer salary;
     private College collegeByYxh;
@@ -60,11 +62,11 @@ public class Teacher {
 
     @Basic
     @Column(name = "birthdate", nullable = true)
-    public Timestamp getBirthdate() {
+    public Date getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Timestamp birthdate) {
+    public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
 

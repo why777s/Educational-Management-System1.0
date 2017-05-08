@@ -12,6 +12,8 @@ public class Admin {
     private String adminName;
     private String password;
 
+    private College collegeByYxh;
+
     @Id
     @Column(name = "adminId", nullable = false, length = 8)
     public String getAdminId() {
@@ -62,5 +64,15 @@ public class Admin {
         result = 31 * result + (adminName != null ? adminName.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "yxh", referencedColumnName = "yxh",insertable = false,updatable = false)
+    public College getCollegeByYxh() {
+        return collegeByYxh;
+    }
+
+    public void setCollegeByYxh(College collegeByYxh) {
+        this.collegeByYxh = collegeByYxh;
     }
 }

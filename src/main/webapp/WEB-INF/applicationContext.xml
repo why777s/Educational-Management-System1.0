@@ -14,6 +14,8 @@
          http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 ">
 
+    <!-- 数据库 -->
+
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/mySchool?useUnicode=true&amp;characterEncoding=UTF8"/>
@@ -33,6 +35,7 @@
                 <value>Entity.College</value>
                 <value>Entity.Admin</value>
                 <value>Entity.Course</value>
+                <value>Entity.SelectCourse</value>
             </list>
         </property>
 
@@ -51,7 +54,7 @@
         <!--</property>-->
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/mySchool?useUnicode=true&amp;characterEncoding=UTF8</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/mySchool</prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
                 <prop key="hibernate.show_sql">true</prop>
             </props>
@@ -61,81 +64,39 @@
 
     <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
 
-    <bean id="studentDao" class="Dao.impl.StudentDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-    
-    <bean id="studentService" class="Service.impl.StudentServiceImpl">
-        <property name="studentDao" ref="studentDao"/>
-    </bean>
-
-
-
     <bean id="transactionManager"  class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <!-- Dao层 bean-->
 
-    <!-- Action -->
-    <bean id="loginBean" class="Controller.loginAction">
-        <property name="studentService" ref="studentService"/>
-        <property name="teacherService" ref="teacherService"/>
-        <property name="adminService" ref="adminService"/>
+    <bean id="studentDao" class="Dao.impl.StudentDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="courseDao"  class="Dao.impl.CourseDaoImpl" >
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
     <bean id="adminDao" class="Dao.impl.AdminDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="adminService" class="Service.impl.AdminServiceImpl">
-        <property name="adminDao" ref="adminDao"/>
+    <bean id="studentService" class="Service.impl.StudentServiceImpl">
+        <property name="studentDao" ref="studentDao"/>
     </bean>
 
-
-    <bean id="courseDao"  class="Dao.impl.CourseDaoImpl" >
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    <bean id="navigateBean" class="Controller.NavigateAction">
-        <property name="courseService" ref="courseService"/>
-        <property name="openCourseService" ref="openCourseService"/>
-        <property name="selectCourseService" ref="selectCourseService"/>
-        <property name="teacherService" ref="teacherService"/>
-    </bean>
-
-    <bean id="courseService"  class="Service.impl.CourseServiceImpl">
-        <property name="courseDao" ref="courseDao"/>
-    </bean>
 
     <bean id="openCourseDao" class="Dao.impl.OpenCourseDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    <bean id="openCourseService" class="Service.impl.OpenCourseServiceImpl">
-        <property name="openCourseDao" ref="openCourseDao"/>
-        <property name="course_openCourse_dao" ref="course_openCourse_dao"/>
     </bean>
 
     <bean id="course_openCourse_dao" class="Dao.impl.Course_OpenCourse_DaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-
-    <bean id="selectCourseBean" class="Controller.FuncAction">
-        <property name="selectCourseService" ref="selectCourseService"/>
-        <property name="teacherService" ref="teacherService"/>
-        <property name="openCourseService" ref="openCourseService"/>
-        <property name="selectCourseDao" ref="selectCourseDao"/>
-    </bean>
-
-
     <bean id="selectCourseDao" class="Dao.impl.SelectCourseDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    <bean id="selectCourseService" class="Service.impl.SelectCourseServiceImpl">
-        <property name="selectCourseDao" ref="selectCourseDao"/>
-        <property name="sC_c_t_dao" ref="sC_c_t_dao"/>
     </bean>
 
 
@@ -145,14 +106,59 @@
     <bean id="teacherDao" class="Dao.impl.TeacherDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    
+
+
+
+
+    <!--Service 层 bean-->
+    <bean id="adminService" class="Service.impl.AdminServiceImpl">
+        <property name="adminDao" ref="adminDao"/>
+    </bean>
+
+    <bean id="courseService"  class="Service.impl.CourseServiceImpl">
+        <property name="courseDao" ref="courseDao"/>
+    </bean>
+
+    <bean id="openCourseService" class="Service.impl.OpenCourseServiceImpl">
+        <property name="openCourseDao" ref="openCourseDao"/>
+        <property name="course_openCourse_dao" ref="course_openCourse_dao"/>
+    </bean>
+
+
+    <bean id="selectCourseService" class="Service.impl.SelectCourseServiceImpl">
+        <property name="selectCourseDao" ref="selectCourseDao"/>
+        <property name="sC_c_t_dao" ref="sC_c_t_dao"/>
+    </bean>
+
     <bean id="teacherService" class="Service.impl.TeacherServiceImpl">
         <property name="teacherDao" ref="teacherDao"/>
         <property name="selectCourseDao" ref="selectCourseDao"/>
         <property name="course_openCourse_dao" ref="course_openCourse_dao"/>
     </bean>
 
+    <!-- Action Bean -->
+    <bean id="loginBean" class="Controller.loginAction">
+        <property name="studentService" ref="studentService"/>
+        <property name="teacherService" ref="teacherService"/>
+        <property name="adminService" ref="adminService"/>
+    </bean>
 
+    <bean id="navigateBean" class="Controller.NavigateAction">
+        <property name="courseService" ref="courseService"/>
+        <property name="openCourseService" ref="openCourseService"/>
+        <property name="selectCourseService" ref="selectCourseService"/>
+        <property name="teacherService" ref="teacherService"/>
+        <property name="studentService" ref="studentService"/>
+        <property name="adminService" ref="adminService"/>
+    </bean>
+
+    <bean id="selectCourseBean" class="Controller.FuncAction">
+        <property name="selectCourseService" ref="selectCourseService"/>
+        <property name="teacherService" ref="teacherService"/>
+        <property name="openCourseService" ref="openCourseService"/>
+        <property name="selectCourseDao" ref="selectCourseDao"/>
+        <property name="studentService" ref="studentService"/>
+    </bean>
 
 
 </beans>

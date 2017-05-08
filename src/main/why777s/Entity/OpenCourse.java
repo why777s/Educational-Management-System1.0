@@ -14,6 +14,7 @@ public class OpenCourse {
     private String time;
     private String semester;
 
+
     @Id
     @Column(name = "cid", nullable = false, length = 8)
     public String getCid() {
@@ -77,4 +78,5 @@ public class OpenCourse {
         result = 31 * result + (semester != null ? semester.hashCode() : 0);
         return result;
     }
+
 }

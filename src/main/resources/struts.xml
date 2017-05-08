@@ -8,7 +8,7 @@
     <package name="default" extends="struts-default">
         <action name="studentlogin" class="loginBean" method="studentLogin">
             <result name="error">/WEB-INF/loginError.jsp</result>
-            <result name="success">/WEB-INF/studentLogin.jsp</result>
+            <result name="success">/WEB-INF/studentLoginnew.jsp</result>
         </action>
 
         <action name="teacherlogin" class="loginBean" method="teacherLogin">
@@ -17,7 +17,28 @@
         </action>
 
         <action name="adminlogin" class="loginBean" method="adminLogin">
-            <result name="success">/WEB-INF/adminLogin.jsp</result>
+            <result name="success">/WEB-INF/admin/adminLogin.jsp</result>
+            <result name="error">/WEB-INF/loginError.jsp</result>
+        </action>
+
+        <!--// admin查询学生信息-->
+        <action name="turnstuin" class="navigateBean" method="turnStuInfo">
+            <result name="success">/WEB-INF/admin/allstuinfo.jsp</result>
+            <result name="error">/WEB-INF/loginError.jsp</result>
+        </action>
+
+        <action name="turnCinfo" class="navigateBean" method="execute">
+            <result name="success">/WEB-INF/course_list.jsp</result>
+            <result name="error">/WEB-INF/loginError.jsp</result>
+        </action>
+
+        <action name="turnAdIn" class="navigateBean" method="turnAdInfo">
+            <result name="success">/WEB-INF/admin/adminInfo.jsp</result>
+            <result name="error">/WEB-INF/loginError.jsp</result>
+        </action>
+
+        <action name="turnteaIn" class="navigateBean" method="turnTeaInfo">
+            <result name="success">/WEB-INF/admin/allteaInfo.jsp</result>
             <result name="error">/WEB-INF/loginError.jsp</result>
         </action>
 
@@ -47,8 +68,8 @@
 
         <!--退课Action-->
         <action name="tK" class="selectCourseBean" method="tuike">
-            <result name="success">/WEB-INF/loginSuc.jsp</result>
-            <result name="error">/WEB-INF/loginError.jsp</result>
+            <result name="success">/WEB-INF/tuike.jsp</result>
+            <result name="error">/WEB-INF/tuike.jsp</result>
         </action>
         <!-- 选课Action -->
         <action name="sC" class="selectCourseBean" method="xuanke">

@@ -69,4 +69,10 @@ public class TeacherServiceImpl implements TeacherService {
         return selectCourseDao.find_withOnePara(hql,asd);
     }
 
+
+
+    @Transactional
+    public List<Teacher> getallTea() {
+        return teacherDao.findall(Teacher.class);
+    }
 }

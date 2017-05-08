@@ -78,4 +78,25 @@ public class SelectCourseServiceImpl implements SelectCourseService {
                 "where sid=?";
         return selectCourseDao.find_withOnePara(hql,sid);
     }
+
+    @Transactional
+    public SelectCourse get_selectCourse(SelectCoursePK selectCoursePK){
+        return selectCourseDao.get(SelectCourse.class,selectCoursePK);
+    }
+
+
+
+    @Transactional
+    public boolean timeConflict(String time,String id) {
+// 这里有问题！要根据学号查询返回结果
+        String hql = "from SelectCourse " +
+                "where sid=?";
+        List<SelectCourse> selectCourseList = selectCourseDao.find_withOnePara(hql,id);
+        for (SelectCourse i:selectCourseList){
+            System.out.println("时间"+i.getOpenCourseByOpenCoursePK().getTime());
+            if (i.getOpenCourseByOpenCoursePK().getTime().equals(time))
+                return false;
+        }
+        return true;
+    }
 }

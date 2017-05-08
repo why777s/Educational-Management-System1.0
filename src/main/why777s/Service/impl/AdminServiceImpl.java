@@ -3,7 +3,11 @@ package Service.impl;
 import Dao.impl.AdminDaoImpl;
 import Entity.Admin;
 import Service.AdminService;
+import com.opensymphony.xwork2.ActionContext;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by wangzhaojun on 2017/4/28.
@@ -26,5 +30,11 @@ public class AdminServiceImpl implements AdminService {
             System.out.println("姓名为:"+ad.getAdminName());
             return ad.getPassword().equals(admin.getPassword());
         }
+    }
+
+    @Transactional
+    public Admin getAdminInfo() {
+        HttpSession session = ServletActionContext.getRequest().getSession();
+        return adminDao.get(Admin.class,(String)session.getAttribute("userID"));
     }
 }
