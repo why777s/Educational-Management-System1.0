@@ -13,7 +13,6 @@ public class OpenCourse {
     private String tid;
     private String time;
     private String semester;
-
     private Course courseByCid;
 
 
@@ -87,9 +86,6 @@ public class OpenCourse {
     public Course getCourseByCid() {
         return courseByCid;
     }
-
-
-
     public void setCourseByCid(Course courseByCid) {
         this.courseByCid = courseByCid;
     }

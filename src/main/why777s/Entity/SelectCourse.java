@@ -17,12 +17,13 @@ public class SelectCourse {
     private String pscj;
     private String kscj;
     private String zpcj;
+
     private Course courseByCid;
     private Student studentBySid;
-
     private OpenCourse openCourseByOpenCoursePK;
 
-
+    public SelectCourse() {
+    }
 
     @Id
     @Column(name = "sid", nullable = false, length = 8)
@@ -128,13 +129,9 @@ public class SelectCourse {
     public Course getCourseByCid() {
         return courseByCid;
     }
-
-
-
     public void setCourseByCid(Course courseByCid) {
         this.courseByCid = courseByCid;
     }
-
 
     @ManyToOne
     @JoinColumns(
@@ -147,7 +144,6 @@ public class SelectCourse {
     public OpenCourse getOpenCourseByOpenCoursePK() {
         return openCourseByOpenCoursePK;
     }
-
     public void setOpenCourseByOpenCoursePK(OpenCourse openCourseByOpenCoursePK) {
         this.openCourseByOpenCoursePK = openCourseByOpenCoursePK;
     }

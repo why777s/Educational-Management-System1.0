@@ -128,12 +128,6 @@ public class NavigateAction extends ActionSupport {
 
 
 
-
-
-
-
-
-
     public List<Course> getCourseList() {
         return courseList;
     }
@@ -177,19 +171,12 @@ public class NavigateAction extends ActionSupport {
     //处理 教师查看个人开课情况 跳转Action
     public String turnTschedu() throws Exception{
         openCourseList = teacherService.get_tkaike_info_oc();
-//        course_openCourse_cids = teacherService.get_tkaike_info();
         return SUCCESS;
     };
 
     //处理 教师登分 跳转Action
     public String turnEntry() throws Exception{
-//        course_openCourse_cids = teacherService.get_tkaike_info();
-
         openCourseList = teacherService.get_tkaike_info_oc();
-        System.out.println(openCourseList.get(0).getCid());
-//        scList = teacherService.get_txk_info();
-
-//        course_openCourse_cids = teacherService.get_tkaike_info();
         return SUCCESS;
     }
 
@@ -234,8 +221,6 @@ public class NavigateAction extends ActionSupport {
 
 
 
-
-
     //某教师某门课的选课情况
     private  String tc_downmenu_cid;
     public String getTc_downmenu_cid() {
@@ -263,10 +248,6 @@ public class NavigateAction extends ActionSupport {
         this.tc_scList = tc_scList;
     }
     //整体保存登分，平时成绩和课时成绩的list
-    private List<SelectCourse> up_tc_scList;
-    public List<SelectCourse> getUp_tc_scList() {return up_tc_scList;}
-    public void setUp_tc_scList(List<SelectCourse> up_tc_scList) {this.up_tc_scList = up_tc_scList;}
-
     private List<String> pscj_list;
     public List<String> getPscj_list() {return pscj_list;}
     public void setPscj_list(List<String> pscj_list) {this.pscj_list = pscj_list;}
@@ -277,46 +258,40 @@ public class NavigateAction extends ActionSupport {
 
     //更新该门课的成绩比例（平时成绩/总评成绩）
     public String updatedfbl() throws Exception{
-        //保留原来的
         Course c=tc_scList.get(0).getCourseByCid();
-        //设置修改部分
         c.setBl(dfbl);
         teacherService.update_c_bl(c);
-        dfbl_Old=tc_scList.get(0).getCourseByCid().getBl();
+        dfbl_Old=c.getBl();
+        //修改比例后更新总评成绩
+        DecimalFormat decimalFormat=new DecimalFormat(".0");
+        int i=0;
+        for (SelectCourse df: tc_scList) {
+            df.setZpcj(decimalFormat.format(dfbl_Old * Integer.valueOf(df.getPscj()) + (1 - dfbl_Old) * Integer.valueOf(df.getKscj())));
+            i++;
+            teacherService.update_tc_sc(df);
+        }
         return SUCCESS;
     }
     //查看某教师某门课的选课情况
     public String turnTC() throws Exception{
         //  教师某门课的选课情况
         tc_scList = teacherService.get_txk_info(getTc_downmenu_cid());
-        //顺便查成绩比例
+        //成绩比例
         dfbl_Old=tc_scList.get(0).getCourseByCid().getBl();
         return SUCCESS;
     }
 
     //某教师某门课的整体登分action
     public String TCdf() throws Exception{
-        //创建触发器
-        //先查该门课成绩比例
-        Float bl=dfbl_Old;
-        //小数位
         DecimalFormat decimalFormat=new DecimalFormat(".0");
         int i=0;
-        List<SelectCourse> up_tc_scList=tc_scList;
-        System.out.print("成绩比例："+bl);
-        for (SelectCourse df: up_tc_scList) {
+        for (SelectCourse df: tc_scList) {
             df.setPscj(pscj_list.get(i));
             df.setKscj(kscj_list.get(i));
-            df.setZpcj(decimalFormat.format(bl * Integer.valueOf(df.getPscj()) + (1 - bl) * Integer.valueOf(df.getKscj())));
+            df.setZpcj(decimalFormat.format(dfbl_Old * Integer.valueOf(df.getPscj()) + (1 - dfbl_Old) * Integer.valueOf(df.getKscj())));
             i++;
-            System.out.print("学号："+df.getSid()+"\n");
-            System.out.print("课号："+df.getCid()+"\n");
-            System.out.print("平时成绩："+df.getPscj()+"\n");
-            System.out.print("课时成绩："+df.getKscj()+"\n");
-            System.out.print("总评成绩："+df.getZpcj()+"\n");
             teacherService.update_tc_sc(df);
         }
-        tc_scList = teacherService.get_txk_info(getTc_downmenu_cid());
         return SUCCESS;
     }
 

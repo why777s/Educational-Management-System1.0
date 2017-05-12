@@ -25,12 +25,6 @@ public class OpenCourseServiceImpl implements OpenCourseService {
     }
 
 
-//    public List<T> find(String hql){
-//        return (List<T>)getSessionFactory().getCurrentSession()
-//                .createQuery(hql)
-//                .list();
-//    }
-
 
     //查询  详细的开课信息 （为了选课）
     @Transactional
