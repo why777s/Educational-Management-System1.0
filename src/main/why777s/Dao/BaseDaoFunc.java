@@ -65,6 +65,13 @@ public class BaseDaoFunc<T> implements BaseDao<T> {
                 .list();
     }
 
+    @SuppressWarnings("unchecked")
+    public List<T> find_withTwoPara(String hql, String para1, String para2) {
+        return (List<T>)getSessionFactory().getCurrentSession()
+                .createQuery(hql).setParameter(0,para1).setParameter(1,para2)
+                .list();
+    }
+
     //获取所有实体
 //   有问题好像
     public List<T> findall(Class<T> entityClass) {

@@ -73,14 +73,29 @@
                     <a href="<s:url action="turnCinfo"/>" target="cont">课程信息</a>
                 </li>
                 <li class="nav-header">
-                    常用操作
+                    课程管理
                 </li>
                 <li>
-                    <a href="#" target="cont">课程管理</a>
+                    <a href="<s:url action="kcgl"/>" target="cont">课程修改</a>
+                </li>
+
+                <li><a href="<s:url action="addC"/>" target="cont">课程添加</a></li>
+                <li><a>课程删除</a></li>
+
+                <li class="nav-header">
+                    教师管理
                 </li>
                 <li>
-                    <a href="#" target="cont" >教师管理</a>
+                    <a href="<s:url action="jsxg"/> " target="cont" >教师修改</a>
                 </li>
+                <li><a>添加教师</a></li>
+                <li class="nav-header">
+                    其余操作
+                </li>
+                <li>
+                    <a href="<s:url action="turnKFXK"/>" target="cont">开放选课</a>
+                </li>
+
                 <li class="divider">
                 </li>
                 <li>

@@ -107,6 +107,13 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <bean class="Dao.impl.StatusDaoImpl" id="statusDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean class="Dao.impl.CollegeDaoImpl" id="collegeDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
 
 
@@ -134,6 +141,16 @@
         <property name="teacherDao" ref="teacherDao"/>
         <property name="selectCourseDao" ref="selectCourseDao"/>
         <property name="course_openCourse_dao" ref="course_openCourse_dao"/>
+        <property name="courseDao" ref="courseDao"/>
+        <property name="openCourseDao" ref="openCourseDao"/>
+    </bean>
+
+    <bean id="statusServiceImple" class="Service.impl.StatusServiceImple">
+        <property name="statusDao" ref="statusDao"/>
+    </bean>
+
+    <bean id="collegeService" class="Service.impl.CollegeServiceImpl">
+        <property name="collegeDao" ref="collegeDao"/>
     </bean>
 
     <!-- Action Bean -->
@@ -150,6 +167,7 @@
         <property name="teacherService" ref="teacherService"/>
         <property name="studentService" ref="studentService"/>
         <property name="adminService" ref="adminService"/>
+        <property name="statusServiceImple" ref="statusServiceImple"/>
     </bean>
 
     <bean id="selectCourseBean" class="Controller.FuncAction">
@@ -158,6 +176,17 @@
         <property name="openCourseService" ref="openCourseService"/>
         <property name="selectCourseDao" ref="selectCourseDao"/>
         <property name="studentService" ref="studentService"/>
+        <property name="courseService" ref="courseService"/>
+        <property name="statusServiceImple" ref="statusServiceImple"/>
+    </bean>
+
+    <bean id="textAction" class="Controller.TextAction">
+        <property name="courseService" ref="courseService"/>
+        <property name="collegeService" ref="collegeService"/>
+    </bean>
+
+    <bean id="adminChangeTeaAction" class="Controller.AdminChangeTeaAction">
+        <property name="teacherService" ref="teacherService"/>
     </bean>
 
 

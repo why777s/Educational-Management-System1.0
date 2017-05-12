@@ -13,6 +13,33 @@ public class Course {
     private Integer ccredit;
     private College collegeByYxh;
 
+    private Course courseByCid;
+
+    private String yxh;
+
+    private float bl;
+
+
+    @Basic
+    @Column(name = "bl",nullable = true)
+    public Float getBl() {return bl;}
+    public void setBl(Float bl) {this.bl = bl;}
+
+
+    @Basic
+    @Column(name = "yxh",nullable = true,length = 2)
+    public String getYxh(){
+        return yxh;
+    }
+
+    public void setYxh(String yxh) {
+        this.yxh = yxh;
+    }
+
+    public void setYxh(College collegeByYxh) {
+        this.yxh = collegeByYxh.getYxh();
+    }
+
     @Id
     @Column(name = "cid", nullable = false, length = 8)
     public String getCid() {
@@ -72,6 +99,21 @@ public class Course {
     }
 
     public void setCollegeByYxh(College collegeByYxh) {
+
         this.collegeByYxh = collegeByYxh;
     }
+
+
+    @ManyToOne
+    @JoinColumn(name = "cid", referencedColumnName = "cid", nullable = false,insertable = false,updatable = false)
+    public Course getCourseByCid() {
+        return courseByCid;
+    }
+
+
+
+    public void setCourseByCid(Course courseByCid) {
+        this.courseByCid = courseByCid;
+    }
+
 }

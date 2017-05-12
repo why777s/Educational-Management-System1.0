@@ -31,7 +31,7 @@
         <div class="span12">
             <div class="page-header">
                 <h3>
-                    学生选课界面 <small>by why777s</small>
+                    学生选课界面 <small>欢迎学号:<s:property value="#session.userID"/> </small>
                 </h3>
             </div>
             <ul class="nav nav-pills">

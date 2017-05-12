@@ -2,15 +2,10 @@ package Controller;
 
 import Dao.impl.OpenCourseDaoImpl;
 import Dao.impl.SelectCourseDaoImpl;
-import Entity.OpenCourse;
-import Entity.SelectCourse;
-import Entity.SelectCoursePK;
-import Entity.Student;
+import Entity.*;
 import Entity.multiQuery.Course_OpenCourse_cid;
-import Service.impl.OpenCourseServiceImpl;
-import Service.impl.SelectCourseServiceImpl;
-import Service.impl.StudentServiceImpl;
-import Service.impl.TeacherServiceImpl;
+import Service.CourseService;
+import Service.impl.*;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletResponseAware;
@@ -34,8 +29,66 @@ public class FuncAction extends ActionSupport {
     private SelectCourseDaoImpl selectCourseDao;
     public List<Course_OpenCourse_cid> course_openCourse_cids;
     private StudentServiceImpl studentService;
+    private CourseService courseService;
+    private String setopen;
+
+    private StatusServiceImple statusServiceImple;
+
+    public void setStatusServiceImple(StatusServiceImple statusServiceImple) {
+        this.statusServiceImple = statusServiceImple;
+    }
+
+    public String getSetopen() {
+        return setopen;
+    }
+
+    public void setSetopen(String setopen) {
+        this.setopen = setopen;
+    }
+
+    public void setCourseService(CourseService courseService) {
+        this.courseService = courseService;
+    }
 
     public List<SelectCourse> scList;
+
+    public List<String>  jieshoudecid;
+    public List<String> jieshoudecname;
+    public int jieshoudexuhao;
+
+    public int getJieshoudexuhao() {
+        return jieshoudexuhao;
+    }
+
+    public void setJieshoudexuhao(int jieshoudexuhao) {
+        this.jieshoudexuhao = jieshoudexuhao;
+    }
+
+    public List<String> getJieshoudecid() {
+        return jieshoudecid;
+    }
+
+    public void setJieshoudecid(List<String> jieshoudecid) {
+        this.jieshoudecid = jieshoudecid;
+    }
+
+    public List<String> getJieshoudecname() {
+        return jieshoudecname;
+    }
+
+    public void setJieshoudecname(List<String> jieshoudecname) {
+        this.jieshoudecname = jieshoudecname;
+    }
+
+    public Course course;
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 
     public List<SelectCourse> getScList() {
         return scList;
@@ -167,6 +220,7 @@ public class FuncAction extends ActionSupport {
 
 
 
+
     //选课
     public String xuanke() throws Exception {
         System.out.println("准备选课处理");
@@ -221,4 +275,19 @@ public class FuncAction extends ActionSupport {
         message="选课成功";
         return SUCCESS;
     }
+
+
+
+    public String setoepnornot() throws Exception{
+        if (getSetopen().equals("开放选课")){
+            statusServiceImple.change_to_one();
+            message="选课开放成功！";
+        }
+        if (getSetopen().equals("关闭选课")){
+            statusServiceImple.change_to_zero();
+            message="选课关闭成功！";
+        }
+        return SUCCESS;
+    }
+
 }

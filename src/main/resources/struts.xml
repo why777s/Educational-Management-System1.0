@@ -48,7 +48,7 @@
         </action>
 
         <action name="turn_Entry" class="navigateBean" method="turnEntry">
-            <result name="success">/WEB-INF/GradeEntry.jsp</result>
+            <result name="success">/WEB-INF/gradeEntry.jsp</result>
             <result name="error">/WEB-INF/loginError.jsp</result>
         </action>
 
@@ -59,11 +59,12 @@
 
         <action name="turn_sC" class="navigateBean" method="turnSc">
             <result name="success">/WEB-INF/selectCoursePage.jsp</result>
+            <result name="error">/WEB-INF/NotOpen.jsp</result>
         </action>
 
         <action name="turn_tK" class="navigateBean" method="turnTk">
             <result name="success">/WEB-INF/tuike.jsp</result>
-            <result name="error">/WEB-INF/loginError.jsp</result>
+            <result name="error">/WEB-INF/NotOpen.jsp</result>
         </action>
 
         <!--退课Action-->
@@ -81,5 +82,59 @@
             <result name="success">/WEB-INF/stu_schedule.jsp</result>
         </action>
 
+        <action name="kcgl" class="navigateBean" method="execute">
+            <result name="success">/WEB-INF/admin/kechengguanli.jsp</result>
+            <result name="error">/WEB-INF/loginError.jsp</result>
+        </action>
+
+        <action name="xiugaixuefen" class="textAction" method="gaixuefen">
+            <result name="success">/WEB-INF/admin/kechengguanli.jsp</result>
+            <result name="error">/WEB-INF/admin/kechengguanli.jsp</result>
+        </action>
+
+        <action name="turnKFXK" class="navigateBean" method="turnkf">
+            <result name="success">/WEB-INF/admin/adminkf.jsp</result>
+        </action>
+
+        <action name="woxiangheyidiandian" class="selectCourseBean" method="setoepnornot">
+            <result name="success">/WEB-INF/admin/adminkf.jsp</result>
+            <result name="error">/WEB-INF/admin/adminkf.jsp</result>
+        </action>
+
+        <action name="addC" class="textAction" method="execute">
+            <result name="success">/WEB-INF/admin/addCourse.jsp</result>
+        </action>
+
+        <action name="addaddCourse" class="textAction" method="adddCourse">
+            <result name="success">/WEB-INF/admin/addCourse.jsp</result>
+            <result name="error">/WEB-INF/admin/addCourse.jsp</result>
+        </action>
+
+        <action name="jsxg" class="navigateBean" method="adminturnxgtea">
+            <result name="success">/WEB-INF/admin/xiugaijiaoshi.jsp</result>
+        </action>
+
+        <action name="jinxingxiugai" class="adminChangeTeaAction" method="changeteainf">
+            <result name="success">/WEB-INF/admin/xiugaijiaoshi.jsp</result>
+            <result name="error">/WEB-INF/admin/xiugaijiaoshi.jsp</result>
+        </action>
+
+
+        <!--某教师某门课的成绩比例-->
+        <action name="update_dfbl" class="navigateBean" method="updatedfbl">
+            <result name="success">/WEB-INF/gradeEntry.jsp</result>
+            <result name="error">/WEB-INF/gradeEntry.jsp</result>
+        </action>
+        <!--某教师某门课的登分action-->
+        <action name="TC_df" class="navigateBean" method="TCdf">
+            <result name="success">/WEB-INF/gradeEntry.jsp</result>
+            <result name="error">/WEB-INF/gradeEntry.jsp</result>
+        </action>
+
+        <!--某教师某门课的选课情况-->
+        <action name="turn_TC" class="navigateBean" method="turnTC">
+            <result name="success">/WEB-INF/gradeEntry.jsp</result>
+            <result name="error">/WEB-INF/gradeEntry.jsp</result>
+        </action>
     </package>
 </struts>

@@ -14,6 +14,9 @@ public class OpenCourse {
     private String time;
     private String semester;
 
+    private Course courseByCid;
+
+
 
     @Id
     @Column(name = "cid", nullable = false, length = 8)
@@ -77,6 +80,18 @@ public class OpenCourse {
         result = 31 * result + (time != null ? time.hashCode() : 0);
         result = 31 * result + (semester != null ? semester.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "cid", referencedColumnName = "cid", nullable = false,insertable = false,updatable = false)
+    public Course getCourseByCid() {
+        return courseByCid;
+    }
+
+
+
+    public void setCourseByCid(Course courseByCid) {
+        this.courseByCid = courseByCid;
     }
 
 }

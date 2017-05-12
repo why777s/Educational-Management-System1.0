@@ -14,10 +14,11 @@ public class SelectCourse {
     private String semester;
     private String cid;
     private String tid;
-    private Integer pscj;
+    private String pscj;
     private String kscj;
     private String zpcj;
     private Course courseByCid;
+    private Student studentBySid;
 
     private OpenCourse openCourseByOpenCoursePK;
 
@@ -65,11 +66,11 @@ public class SelectCourse {
 
     @Basic
     @Column(name = "pscj", nullable = true)
-    public Integer getPscj() {
+    public String getPscj() {
         return pscj;
     }
 
-    public void setPscj(Integer pscj) {
+    public void setPscj(String  pscj) {
         this.pscj = pscj;
     }
 
@@ -149,5 +150,14 @@ public class SelectCourse {
 
     public void setOpenCourseByOpenCoursePK(OpenCourse openCourseByOpenCoursePK) {
         this.openCourseByOpenCoursePK = openCourseByOpenCoursePK;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "sid", referencedColumnName = "sid", nullable = false,insertable = false,updatable = false)
+    public Student getStudentBySid() {
+        return studentBySid;
+    }
+    public void setStudentBySid(Student studentBySid) {
+        this.studentBySid = studentBySid;
     }
 }
