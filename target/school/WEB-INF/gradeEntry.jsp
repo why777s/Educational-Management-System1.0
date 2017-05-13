@@ -19,6 +19,12 @@
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="<%=basePath%>/bootstrap/js/bootstrap.js"></script>
     <link href="<%=basePath%>/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <%--弹窗报错--%>
+    <%--<script>--%>
+        <%--<s:if test="#request.message1!=null">--%>
+        <%--alert("<s:property value="#request.message1"/>")--%>
+        <%--</s:if>--%>
+    <%--</script>--%>
 </head>
 <body >
 <div class="dropdown">

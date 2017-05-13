@@ -23,6 +23,7 @@ public class NavigateAction extends ActionSupport {
     private StudentServiceImpl studentService;
     private AdminService adminService;
     private StatusServiceImple statusServiceImple;
+    public String message1;
 
     public void setStatusServiceImple(StatusServiceImple statusServiceImple) {
         this.statusServiceImple = statusServiceImple;
@@ -77,6 +78,8 @@ public class NavigateAction extends ActionSupport {
         this.selectCourseService = selectCourseService;
     }
 
+    public String getMessage1() {return message1;}
+    public void setMessage1(String message1) {this.message1 = message1;}
 
     public List<Course> courseList;
     public List<OpenCourse> openCourseList;
@@ -267,17 +270,26 @@ public class NavigateAction extends ActionSupport {
 
     //更新该门课的成绩比例（平时成绩/总评成绩）
     public String updatedfbl() throws Exception{
-        Course c=tc_scList.get(0).getCourseByCid();
-        c.setBl(dfbl);
-        teacherService.update_c_bl(c);
-        dfbl_Old=c.getBl();
-        //修改比例后更新总评成绩
-        DecimalFormat decimalFormat=new DecimalFormat(".0");
-        int i=0;
-        for (SelectCourse df: tc_scList) {
-            df.setZpcj(decimalFormat.format(dfbl_Old * Integer.valueOf(df.getPscj()) + (1 - dfbl_Old) * Integer.valueOf(df.getKscj())));
-            i++;
-            teacherService.update_tc_sc(df);
+        try {
+            if (dfbl != null) {
+                Course c = tc_scList.get(0).getCourseByCid();
+                c.setBl(dfbl);
+                teacherService.update_c_bl(c);
+                dfbl_Old = c.getBl();
+            }
+            //修改比例后更新总评成绩
+            DecimalFormat decimalFormat = new DecimalFormat(".0");
+            int i = 0;
+            for (SelectCourse df : tc_scList) {
+                if (df.getKscj() != null && df.getZpcj() != null) {
+                    df.setZpcj(decimalFormat.format(dfbl_Old * Integer.valueOf(df.getPscj()) + (1 - dfbl_Old) * Integer.valueOf(df.getKscj())));
+                    i++;
+                    teacherService.update_tc_sc(df);
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            message1="修改比例失败";
         }
         return SUCCESS;
     }
@@ -291,15 +303,24 @@ public class NavigateAction extends ActionSupport {
     }
 
     //某教师某门课的整体登分action
+    //无异常输入处理
     public String TCdf() throws Exception{
-        DecimalFormat decimalFormat=new DecimalFormat(".0");
-        int i=0;
-        for (SelectCourse df: tc_scList) {
-            df.setPscj(pscj_list.get(i));
-            df.setKscj(kscj_list.get(i));
-            df.setZpcj(decimalFormat.format(dfbl_Old * Integer.valueOf(df.getPscj()) + (1 - dfbl_Old) * Integer.valueOf(df.getKscj())));
-            i++;
-            teacherService.update_tc_sc(df);
+        try {
+            DecimalFormat decimalFormat=new DecimalFormat(".0");
+            int i=0;
+            for (SelectCourse df : tc_scList) {
+                df.setPscj(pscj_list.get(i));
+                df.setKscj(kscj_list.get(i));
+                //？无输入时怎么跳过？既不是null又不是空串
+                if (df.getKscj() != "" && df.getZpcj() != "") {
+                    df.setZpcj(decimalFormat.format(dfbl_Old * Integer.valueOf(df.getPscj()) + (1 - dfbl_Old) * Integer.valueOf(df.getKscj())));
+                }
+                i++;
+                teacherService.update_tc_sc(df);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            message1 = "登分失败，输入异常";
         }
         return SUCCESS;
     }
