@@ -61,9 +61,9 @@
                 <li>
                     <a href="<s:url action="turn_tSchedule"/> " target="cont">查看开课情况</a>
                 </li>
-                <li>
-                    <a>个人信息</a>
-                </li>
+                <%--<li>--%>
+                    <%--<a href="#">个人信息</a>--%>
+                <%--</li>--%>
                 <li class="divider">
                 </li>
                 <li>

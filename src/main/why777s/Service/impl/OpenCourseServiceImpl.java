@@ -36,8 +36,6 @@ public class OpenCourseServiceImpl implements OpenCourseService {
     }
 
 
-
-
     //多表查询问题
     //查询所有开课信息
     @Transactional

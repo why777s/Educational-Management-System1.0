@@ -67,9 +67,6 @@
                 <li>
                     <a href="<s:url action="schedule"/>" target="cont">个人信息</a>
                 </li>
-                <li>
-                    <a href="#"></a><a href="http://www.bootcss.com/p/layoutit/#">删除课程</a>
-                </li>
                 <li class="divider">
                 </li>
                 <li>

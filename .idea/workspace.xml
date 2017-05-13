@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2aef734-dd96-4be2-8bf8-412b989c99bc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/gradeEntry.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/gradeEntry.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/selectCoursePage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/selectCoursePage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tuike.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tuike.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/why777s/Controller/FuncAction.java" afterPath="$PROJECT_DIR$/src/main/why777s/Controller/FuncAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/why777s/Controller/NavigateAction.java" afterPath="$PROJECT_DIR$/src/main/why777s/Controller/NavigateAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/why777s/Entity/OpenCourse.java" afterPath="$PROJECT_DIR$/src/main/why777s/Entity/OpenCourse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/studentLoginnew.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/studentLoginnew.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/teacherLogin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/teacherLogin.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/why777s/Service/impl/OpenCourseServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/why777s/Service/impl/OpenCourseServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/school/WEB-INF/gradeEntry.jsp" afterPath="$PROJECT_DIR$/target/school/WEB-INF/gradeEntry.jsp" />
     </list>
     <ignored path="school.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,12 +30,23 @@
       <file leaf-file-name="NavigateAction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/why777s/Controller/NavigateAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="163" column="55" selection-start-line="163" selection-start-column="55" selection-end-line="163" selection-end-column="55" />
+            <state relative-caret-position="80">
+              <caret line="272" column="27" selection-start-line="272" selection-start-column="27" selection-end-line="272" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3913#3914#0" expanded="true" />
-                <element signature="e#3954#3955#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TeacherServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/why777s/Service/impl/TeacherServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="90" column="24" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="24" />
+              <folding>
+                <element signature="e#2763#2764#0" expanded="true" />
+                <element signature="e#2798#2799#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,28 +55,48 @@
       <file leaf-file-name="gradeEntry.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/gradeEntry.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-261">
+            <state relative-caret-position="-212">
               <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="struts.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/struts.xml">
+      <file leaf-file-name="selectCoursePage.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/selectCoursePage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+            <state relative-caret-position="321">
+              <caret line="64" column="17" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selectCoursePage.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/selectCoursePage.jsp">
+      <file leaf-file-name="studentLoginnew.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/studentLoginnew.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="55" column="75" selection-start-line="55" selection-start-column="75" selection-end-line="55" selection-end-column="75" />
+            <state relative-caret-position="220">
+              <caret line="79" column="7" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="teacherLogin.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/teacherLogin.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="64" column="32" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Course.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/why777s/Entity/Course.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -80,8 +105,8 @@
       <file leaf-file-name="OpenCourseServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/why777s/Service/impl/OpenCourseServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+            <state relative-caret-position="13">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,44 +114,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpenCourse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/why777s/Entity/OpenCourse.java">
+      <file leaf-file-name="BaseDaoFunc.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/why777s/Dao/BaseDaoFunc.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="applicationContext.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-592">
-              <caret line="147" column="17" selection-start-line="147" selection-start-column="17" selection-end-line="147" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FuncAction.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/why777s/Controller/FuncAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="262" column="32" selection-start-line="262" selection-start-column="32" selection-end-line="262" selection-end-column="32" />
+            <state relative-caret-position="153">
+              <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
               <folding>
-                <element signature="e#4915#4916#0" expanded="true" />
-                <element signature="e#4956#4957#0" expanded="true" />
+                <element signature="e#917#918#0" expanded="true" />
+                <element signature="e#993#994#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tuike.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tuike.jsp">
+      <file leaf-file-name="CourseServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/why777s/Service/impl/CourseServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="52" column="48" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
+            <state relative-caret-position="108">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -148,18 +153,18 @@
         <option value="$PROJECT_DIR$/src/main/why777s/Service/impl/TeacherServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/why777s/Service/TeacherService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tea_schedule.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/studentLoginnew.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/teacherLogin.jsp" />
         <option value="$PROJECT_DIR$/src/main/why777s/Entity/SelectCourse.java" />
         <option value="$PROJECT_DIR$/src/main/why777s/Entity/Course.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/gradeEntry.jsp" />
-        <option value="$PROJECT_DIR$/src/main/why777s/Service/impl/OpenCourseServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/why777s/Controller/NavigateAction.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tuike.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/selectCoursePage.jsp" />
         <option value="$PROJECT_DIR$/src/main/why777s/Entity/OpenCourse.java" />
         <option value="$PROJECT_DIR$/src/main/why777s/Controller/FuncAction.java" />
+        <option value="$PROJECT_DIR$/src/main/why777s/Service/impl/OpenCourseServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/studentLoginnew.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/teacherLogin.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/selectCoursePage.jsp" />
       </list>
     </option>
   </component>
@@ -335,36 +340,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="school" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ssh" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="why777s" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="multiQuery" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1026,16 +1001,16 @@
       <option name="presentableId" value="Default" />
       <updated>1494584195800</updated>
       <workItem from="1494584199881" duration="5920000" />
-      <workItem from="1494668068629" duration="5470000" />
+      <workItem from="1494668068629" duration="7167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11390000" />
+    <option name="totallyTimeSpent" value="13087000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="353" y="161" width="1554" height="870" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1047,7 +1022,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936507" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33785617" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33785617" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1094,8 +1069,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3913#3914#0" expanded="true" />
-            <element signature="e#3954#3955#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1146,13 +1119,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/why777s/Service/TeacherService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tea_schedule.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-579">
@@ -1165,6 +1131,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1172,47 +1139,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/studentLoginnew.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1647">
-          <caret line="79" column="10" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/teacherLogin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/why777s/Entity/SelectCourse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-          <folding>
-            <element signature="e#4411#4412#0" expanded="false" />
-            <element signature="e#4446#4447#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/why777s/Service/impl/TeacherServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/why777s/Entity/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1249,21 +1175,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/why777s/Dao/BaseDaoFunc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/why777s/Service/impl/StudentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="756">
           <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
           <folding>
-            <element signature="e#958#959#0" expanded="true" />
-            <element signature="e#1013#1014#0" expanded="true" />
+            <element signature="e#958#959#0" expanded="false" />
+            <element signature="e#1013#1014#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1284,33 +1202,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/why777s/Controller/NavigateAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="163" column="55" selection-start-line="163" selection-start-column="55" selection-end-line="163" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3913#3914#0" expanded="true" />
-            <element signature="e#3954#3955#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-592">
           <caret line="147" column="17" selection-start-line="147" selection-start-column="17" selection-end-line="147" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/why777s/Service/impl/OpenCourseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1330,38 +1226,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/gradeEntry.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/why777s/Entity/OpenCoursePK.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
+        <state relative-caret-position="153">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/why777s/Entity/SelectCourse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-324">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/why777s/Entity/OpenCourse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
+        <state relative-caret-position="810">
           <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/selectCoursePage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="55" column="75" selection-start-line="55" selection-start-column="75" selection-end-line="55" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/why777s/Controller/FuncAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="262" column="32" selection-start-line="262" selection-start-column="32" selection-end-line="262" selection-end-column="32" />
+        <state relative-caret-position="1971">
+          <caret line="188" column="9" selection-start-line="188" selection-start-column="9" selection-end-line="188" selection-end-column="9" />
           <folding>
             <element signature="e#4915#4916#0" expanded="true" />
             <element signature="e#4956#4957#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/why777s/Entity/Course.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/why777s/Service/TeacherService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/why777s/Service/impl/CourseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/why777s/Service/impl/OpenCourseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/why777s/Dao/BaseDaoFunc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+          <folding>
+            <element signature="e#917#918#0" expanded="true" />
+            <element signature="e#993#994#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/studentLoginnew.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="79" column="7" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/teacherLogin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="64" column="32" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/why777s/Service/impl/TeacherServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="90" column="24" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="24" />
+          <folding>
+            <element signature="e#2763#2764#0" expanded="true" />
+            <element signature="e#2798#2799#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/why777s/Controller/NavigateAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="272" column="27" selection-start-line="272" selection-start-column="27" selection-end-line="272" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/gradeEntry.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-212">
+          <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/selectCoursePage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="64" column="17" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
