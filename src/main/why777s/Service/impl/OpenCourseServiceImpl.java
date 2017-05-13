@@ -25,22 +25,15 @@ public class OpenCourseServiceImpl implements OpenCourseService {
     }
 
 
-//    public List<T> find(String hql){
-//        return (List<T>)getSessionFactory().getCurrentSession()
-//                .createQuery(hql)
-//                .list();
-//    }
-
 
     //查询  详细的开课信息 （为了选课）
     @Transactional
-    public List<Course_OpenCourse_cid> get_all_inf(){
-        String hql="select new Entity.multiQuery.Course_OpenCourse_cid(x.cid,x.tid,x.time,x.semester,y.cname,y.ccredit) " +
+    public List<Course_OpenCourse_cid> get_all_inf() {
+        String hql = "select new Entity.multiQuery.Course_OpenCourse_cid(x.cid,x.tid,x.time,x.semester,y.cname,y.ccredit) " +
                 "from OpenCourse x,Course y " +
                 "where x.cid=y.cid";
         return course_openCourse_dao.find(hql);
     }
-
 
 
     //多表查询问题

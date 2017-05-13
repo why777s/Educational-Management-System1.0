@@ -28,6 +28,7 @@ public class FuncAction extends ActionSupport {
     private OpenCourseServiceImpl openCourseService;
     private SelectCourseDaoImpl selectCourseDao;
     public List<Course_OpenCourse_cid> course_openCourse_cids;
+    public List<OpenCourse> stu_openCourseList;
     private StudentServiceImpl studentService;
     private CourseService courseService;
     private String setopen;
@@ -177,34 +178,37 @@ public class FuncAction extends ActionSupport {
     public void setSelectCourseService(SelectCourseServiceImpl selectCourseService) {
         this.selectCourseService = selectCourseService;
     }
+    //action分得不好，选课一直是同一张开课表，无需改变，则无需重复查询
+    public List<OpenCourse> getStu_openCourseList() {
+        return stu_openCourseList;
+    }
+    public void setStu_openCourseList(List<OpenCourse> stu_openCourseList) {
+        this.stu_openCourseList = stu_openCourseList;
+    }
 
     // 退课
     public String tuike() throws Exception{
         System.out.println("准备退课");
-
         System.out.println(tklist.getSid());
         System.out.println(tklist.getTid());
-        SelectCoursePK selectCoursePK = new SelectCoursePK();
 
+        SelectCoursePK selectCoursePK = new SelectCoursePK();
         HttpSession session = ServletActionContext.getRequest().getSession();
         selectCoursePK.setSid((String)session.getAttribute("userID"));
         selectCoursePK.setTid(tklist.getTid());
         selectCoursePK.setCid(tklist.getCid());
         selectCoursePK.setSemester("2016-2017 春");
 
-
-
         try{
-        SelectCourse selectCourse1 = selectCourseService.get_selectCourse(selectCoursePK);
-        Student student = studentService.get_stu((String)session.getAttribute("userID"));
-        System.out.println("学生本来学分："+student.getScredit());
-        student.setScredit(student.getScredit()-selectCourse1.getCourseByCid().getCcredit());
-        System.out.println("退课后的学分:"+student.getScredit());
-        studentService.update_stu(student);
-        selectCourseService.deletedelete(selectCoursePK);
+            SelectCourse selectCourse1 = selectCourseService.get_selectCourse(selectCoursePK);
+            Student student = studentService.get_stu((String)session.getAttribute("userID"));
+            System.out.println("学生本来学分："+student.getScredit());
+            student.setScredit(student.getScredit()-selectCourse1.getCourseByCid().getCcredit());
+            System.out.println("退课后的学分:"+student.getScredit());
+            studentService.update_stu(student);
 
-        scList = selectCourseService.get_all_ById();
-
+            selectCourseService.deletedelete(selectCoursePK);
+            scList = selectCourseService.get_all_ById();
         }catch (Exception e){
             e.printStackTrace();
             message = "退课失败";
@@ -214,53 +218,41 @@ public class FuncAction extends ActionSupport {
     }
 
 
-
-
-
-
-
-
-
     //选课
     public String xuanke() throws Exception {
         System.out.println("准备选课处理");
         //获取web Sesssion
         HttpSession session = ServletActionContext.getRequest().getSession();
-
         String ssid = (String)session.getAttribute("userID");
+        //获取开课表所需填入选课表
         SelectCourse selectCourse = new SelectCourse();
-
         selectCourse.setSid((String)session.getAttribute("userID"));
         selectCourse.setTid(kklist.getTid());
         selectCourse.setSemester("2016-2017 春");
         selectCourse.setCid(kklist.getCid());
-
-
+        //？有何用？复合主键的单独表？
         SelectCoursePK selectCoursePK = new SelectCoursePK();
         selectCoursePK.setSid((String)session.getAttribute("userID"));
         selectCoursePK.setTid(kklist.getTid());
         selectCoursePK.setCid(kklist.getCid());
         selectCoursePK.setSemester("2016-2017 春");
-            System.out.println("开始选课处理！！！");
+
+        System.out.println("开始选课处理！！！");
         System.out.println(selectCourse.getSemester());
         System.out.println(selectCourse.getSid());
         System.out.println(selectCourse.getCid());
         System.out.println(selectCourse.getTid());
         System.out.println("以上为要保存的选课信息");
 
-
-        course_openCourse_cids = openCourseService.get_all_inf();
-
+//        course_openCourse_cids = openCourseService.get_all_inf();
         if (!selectCourseService.timeConflict(kklist.getTime(),ssid)){
             message = "时间冲突或重复选课!";
             return ERROR;
         }
-
         try {
             selectCourseService.save(selectCourse);
-
+            //计分
             SelectCourse selectCourse1 = selectCourseService.get_selectCourse(selectCoursePK);
-
             Student student = studentService.get_stu((String)session.getAttribute("userID"));
             System.out.println("学生本来学分："+student.getScredit());
             System.out.println(selectCourse1.getCourseByCid().getCcredit());
@@ -272,6 +264,8 @@ public class FuncAction extends ActionSupport {
             message = "选课失败";
             return ERROR;
         }
+        //再次查询，避开了触发器后需要flush和refresh更新session里的值
+        stu_openCourseList=openCourseService.get_all();
         message="选课成功";
         return SUCCESS;
     }

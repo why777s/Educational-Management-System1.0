@@ -12,13 +12,11 @@ public class Course {
     private String cname;
     private Integer ccredit;
     private College collegeByYxh;
-
-    private Course courseByCid;
-
     private String yxh;
-
     private float bl;
 
+    public Course() {
+    }
 
     @Basic
     @Column(name = "bl",nullable = true)
@@ -101,19 +99,6 @@ public class Course {
     public void setCollegeByYxh(College collegeByYxh) {
 
         this.collegeByYxh = collegeByYxh;
-    }
-
-
-    @ManyToOne
-    @JoinColumn(name = "cid", referencedColumnName = "cid", nullable = false,insertable = false,updatable = false)
-    public Course getCourseByCid() {
-        return courseByCid;
-    }
-
-
-
-    public void setCourseByCid(Course courseByCid) {
-        this.courseByCid = courseByCid;
     }
 
 }
