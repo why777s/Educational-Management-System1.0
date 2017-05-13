@@ -33,9 +33,10 @@
         <th>教师号</th>
         <th>上课时间</th>
         <th>学分</th>
+        <th>限制人数</th>
         <th>操作</th>
     </tr>
-    <s:iterator status="st" value="#request.course_openCourse_cids" id="kaikelist">
+    <s:iterator status="st" value="#request.stu_openCourseList" id="kaikelist">
         <s:if test="#st.getCount()%4==0">
             <tr class="success">
         </s:if>
@@ -49,17 +50,16 @@
             <tr class="info">
         </s:elseif>
             <td> <s:property value="#kaikelist.cid"/> </td>
-            <td> <s:property value="#kaikelist.cname"/> </td>
+            <td> <s:property value="#kaikelist.courseByCid.cname"/> </td>
             <td> <s:property value="#kaikelist.tid"/> </td>
             <td> <s:property value="#kaikelist.time"/> </td>
-            <td> <s:property value="#kaikelist.ccredit"/> </td>
-            <%--<td> <a href="sC.action?list.cid=<s:property value="cid"/>">选课</a> </td>--%>
-            <%--<td> <a href="sC.action?list.cid=<s:property value="#kaikelist.cid"/>">选课333</a> </td>--%>
+            <td> <s:property value="#kaikelist.courseByCid.ccredit"/> </td>
+            <td><s:property value="xzrs"/></td>
             <td> <a href="<s:url action="sC">
                             <s:param name="kklist.cid"  value="%{cid}"/>
                             <s:param name="kklist.tid" value="%{tid}"/>
                             <s:param name="kklist.time" value="%{time}"/>
-                            <s:param name="kklist.semester" value="%{semester}"/>
+                            <%--<s:param name="kklist.semester" value="%{semester}"/>--%>
                           </s:url> ">
                   选课</a>
             </td>

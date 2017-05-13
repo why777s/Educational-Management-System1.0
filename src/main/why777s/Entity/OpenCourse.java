@@ -14,7 +14,7 @@ public class OpenCourse {
     private String time;
     private String semester;
     private Course courseByCid;
-
+    private int xzrs;
 
 
     @Id
@@ -22,7 +22,6 @@ public class OpenCourse {
     public String getCid() {
         return cid;
     }
-
     public void setCid(String cid) {
         this.cid = cid;
     }
@@ -32,7 +31,6 @@ public class OpenCourse {
     public String getTid() {
         return tid;
     }
-
     public void setTid(String tid) {
         this.tid = tid;
     }
@@ -42,7 +40,6 @@ public class OpenCourse {
     public String getTime() {
         return time;
     }
-
     public void setTime(String time) {
         this.time = time;
     }
@@ -52,10 +49,14 @@ public class OpenCourse {
     public String getSemester() {
         return semester;
     }
-
     public void setSemester(String semester) {
         this.semester = semester;
     }
+
+    @Basic
+    @Column(name = "xzrs",length = 11,nullable = false)
+    public int getXzrs() {return xzrs;}
+    public void setXzrs(int xzrs) {this.xzrs = xzrs;}
 
     @Override
     public boolean equals(Object o) {

@@ -40,7 +40,7 @@
 <s:form action="update_dfbl" theme="simple" method="POST">
     <span class="label">成绩比例(平时成绩/总评成绩)</span>
     <s:textfield name="dfbl" cssStyle="width:50px" maxlength="4" value="%{dfbl_Old}" />
-    <button class="btn">修改</button>
+    <button class="btn btn-success">修改</button>
 </s:form>
 <s:form action="TC_df" theme="simple" method="POST">
     <%--计分比例--%>
@@ -78,7 +78,7 @@
             </tr>
         </s:iterator>
     </table>
-    <button class="btn" type="submit">登分保存</button>
+    <button class="btn btn-success" type="submit">登分保存</button>
 </s:form>
 
 </body>

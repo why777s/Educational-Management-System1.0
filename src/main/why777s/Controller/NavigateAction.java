@@ -80,6 +80,8 @@ public class NavigateAction extends ActionSupport {
 
     public List<Course> courseList;
     public List<OpenCourse> openCourseList;
+    //学生选课时用到的开课表
+    public List<OpenCourse> stu_openCourseList;
     public List<Course_OpenCourse_cid> course_openCourse_cids;
     public List<sC_C_T> sC_c_ts;
     public List<SelectCourse> scList;
@@ -144,6 +146,12 @@ public class NavigateAction extends ActionSupport {
         this.openCourseList = openCourseList;
     }
 
+    public List<OpenCourse> getStu_openCourseList() {
+        return stu_openCourseList;
+    }
+    public void setStu_openCourseList(List<OpenCourse> stu_openCourseList) {
+        this.stu_openCourseList = stu_openCourseList;
+    }
     @Override
     public String execute() throws Exception {
         courseList = courseService.get_all();
@@ -152,7 +160,8 @@ public class NavigateAction extends ActionSupport {
 
     //跳转到选课页面
     public String turnSc() throws Exception{
-        course_openCourse_cids = openCourseService.get_all_inf();
+//        course_openCourse_cids = openCourseService.get_all_inf();
+        stu_openCourseList=openCourseService.get_all();
         if (statusServiceImple.get_Status().getPermitSelect()==0){
             return ERROR;
         }
