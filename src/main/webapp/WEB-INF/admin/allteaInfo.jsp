@@ -30,7 +30,6 @@
         <th>工号</th>
         <th>教师名</th>
         <th>级别</th>
-        <th>密码</th>
         <th>性别</th>
         <th>生日</th>
         <th>院系名</th>
@@ -52,7 +51,6 @@
         <td> <s:property value="tid"/> </td>
         <td> <s:property value="tname"/> </td>
         <td> <s:property value="title"/> </td>
-        <td> <s:property value="password"/> </td>
         <td> <s:property value="sex"/> </td>
         <td> <s:property value="birthdate"/> </td>
         <td> <s:property value="collegeByYxh.yname"/> </td>

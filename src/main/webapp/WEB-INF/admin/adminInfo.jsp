@@ -42,12 +42,6 @@
             <s:property value="admin.adminName"/>
         </td>
     </tr>
-    <tr class="warning">
-        <td>密码:</td>
-        <td>
-            <s:property value="admin.password"/>
-        </td>
-    </tr>
     <tr class="error">
         <td>
             院系名:

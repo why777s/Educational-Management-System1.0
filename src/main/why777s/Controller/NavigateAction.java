@@ -35,7 +35,15 @@ public class NavigateAction extends ActionSupport {
     private Student me;
     private Admin admin;
     private Teacher teacher;
+    public String message;
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public Teacher getTeacher() {
         return teacher;
@@ -176,6 +184,7 @@ public class NavigateAction extends ActionSupport {
 
     //处理 教师查看个人开课情况 跳转Action
     public String turnTschedu() throws Exception{
+        message = null;
         openCourseList = teacherService.get_tkaike_info_oc();
 //        course_openCourse_cids = teacherService.get_tkaike_info();
         return SUCCESS;
@@ -280,23 +289,32 @@ public class NavigateAction extends ActionSupport {
         //保留原来的
         Course c=tc_scList.get(0).getCourseByCid();
         //设置修改部分
-        c.setBl(dfbl);
-        teacherService.update_c_bl(c);
-        dfbl_Old=tc_scList.get(0).getCourseByCid().getBl();
+        if (dfbl==null){
+            message = "比例不能为空！";
+        }
+        else {
+            c.setBl(dfbl);
+            teacherService.update_c_bl(c);
+            dfbl_Old = tc_scList.get(0).getCourseByCid().getBl();
+            message = null;
+        }
         return SUCCESS;
+
     }
     //查看某教师某门课的选课情况
     public String turnTC() throws Exception{
+        message=null;
         //  教师某门课的选课情况
-        tc_scList = teacherService.get_txk_info(getTc_downmenu_cid());
+            tc_scList = teacherService.get_txk_info(getTc_downmenu_cid());
         //顺便查成绩比例
         dfbl_Old=tc_scList.get(0).getCourseByCid().getBl();
+
+
         return SUCCESS;
     }
 
     //某教师某门课的整体登分action
     public String TCdf() throws Exception{
-        //创建触发器
         //先查该门课成绩比例
         Float bl=dfbl_Old;
         //小数位
@@ -305,9 +323,15 @@ public class NavigateAction extends ActionSupport {
         List<SelectCourse> up_tc_scList=tc_scList;
         System.out.print("成绩比例："+bl);
         for (SelectCourse df: up_tc_scList) {
+            System.out.println("平时成绩和考试成绩:");
             df.setPscj(pscj_list.get(i));
             df.setKscj(kscj_list.get(i));
-            df.setZpcj(decimalFormat.format(bl * Integer.valueOf(df.getPscj()) + (1 - bl) * Integer.valueOf(df.getKscj())));
+                if (df.getPscj().equals("") || df.getKscj().equals("")) {
+                    df.setZpcj("尚未录入");
+                }
+                else {
+                    df.setZpcj(decimalFormat.format(bl * Integer.valueOf(df.getPscj()) + (1 - bl) * Integer.valueOf(df.getKscj())));
+                }
             i++;
             System.out.print("学号："+df.getSid()+"\n");
             System.out.print("课号："+df.getCid()+"\n");
@@ -317,6 +341,7 @@ public class NavigateAction extends ActionSupport {
             teacherService.update_tc_sc(df);
         }
         tc_scList = teacherService.get_txk_info(getTc_downmenu_cid());
+        message = "登分成功";
         return SUCCESS;
     }
 

@@ -9,6 +9,7 @@ import Entity.multiQuery.Course_OpenCourse_cid;
 import Service.TeacherService;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.transaction.annotation.Transactional;
+import other.MD5;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -52,7 +53,14 @@ public class TeacherServiceImpl implements TeacherService {
         }
         else {
             System.out.println("欢迎工号为"+teacher.getTid()+"的教师");
-            return tc.getPassword().equals(teacher.getPassword());
+            try{
+                String new_tstr = new MD5().getMD5(teacher.getPassword());
+                if (new_tstr.equals(tc.getPassword()))
+                    return true;
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            return false;
         }
     }
 

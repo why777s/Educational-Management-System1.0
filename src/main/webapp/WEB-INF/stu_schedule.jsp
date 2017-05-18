@@ -57,6 +57,13 @@
             <s:property value="me.collegeByYxh.yname"/>
         </td>
     </tr>
+    <tr class="info">
+        <td>学费(元)：</td>
+        <td>
+            <s:property value="me.tuition"/>
+        </td>
+
+    </tr>
     <tr class="success">
         <td>
             总学分:

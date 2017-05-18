@@ -22,6 +22,13 @@
     <script src="<%=basePath%>/bootstrap/js/bootstrap.js"></script>
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link href="<%=basePath%>/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <script>
+        <s:if test="#request.message!=null">
+        alert("<s:property value="#request.message"/>");
+        </s:if>
+    </script>
+
 </head>
 <body >
 <div class="dropdown">

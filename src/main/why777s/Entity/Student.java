@@ -14,7 +14,18 @@ public class Student {
     private String sex;
     private String jiguan;
     private Integer scredit;
+    private Integer tuition;
     private College collegeByYxh;
+
+    @Basic
+    @Column(name = "tuition" ,nullable = true )
+    public Integer getTuition() {
+        return tuition;
+    }
+
+    public void setTuition(Integer tuition) {
+        this.tuition = tuition;
+    }
 
     @Id
     @Column(name = "sid", nullable = false, length = 8)
@@ -65,6 +76,7 @@ public class Student {
     public void setJiguan(String jiguan) {
         this.jiguan = jiguan;
     }
+
 
     @Basic
     @Column(name = "scredit", nullable = true)

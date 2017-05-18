@@ -32,7 +32,6 @@
         <th>学号</th>
         <th>姓名</th>
         <th>性别</th>
-        <th>密码</th>
         <th>籍贯</th>
         <th>院系号</th>
         <th>学分</th>
@@ -53,7 +52,6 @@
         <td> <s:property value="sid"/> </td>
         <td> <s:property value="sname"/> </td>
         <td> <s:property value="sex"/> </td>
-        <td> <s:property value="password"/> </td>
         <td> <s:property value="jiguan"/> </td>
         <td> <s:property value="collegeByYxh.yxh"/> </td>
         <td> <s:property value="scredit"/> </td>

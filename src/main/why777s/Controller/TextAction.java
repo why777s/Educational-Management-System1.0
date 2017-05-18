@@ -128,7 +128,6 @@ public class TextAction extends ActionSupport {
 
     public String gaixuefen() throws Exception{
 
-
         System.out.println("要修改的课程名：");
         System.out.println(getJieshoudecid());
         System.out.println(getJieshoudecname());

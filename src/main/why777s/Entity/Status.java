@@ -8,6 +8,10 @@ import javax.persistence.Id;
 /**
  * Created by wangzhaojun on 2017/5/11.
  */
+
+
+
+
 @Entity
 public class Status {
     private int permitSelect;

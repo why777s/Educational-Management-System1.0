@@ -23,7 +23,10 @@
     <script src="<%=basePath%>/bootstrap/js/bootstrap.js"></script>
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
-    <link href="<%=basePath%>/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="<%=basePath%>/bootstrap/css/bootstrap.css" rel="stylesheet"
+
+
+</head>
 <body>
 <div class="container-fluid">
     <div class="row-fluid">

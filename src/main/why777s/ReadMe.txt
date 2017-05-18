@@ -1,3 +1,8 @@
+用户测试:
+学生 id:0001 密码:0001
+教师 id:T001 密码:T001
+管理员 id:admin01 密码:admin01
+
 package why777s.Controller
 
     FuncAction —— 专门处理功能类的Action

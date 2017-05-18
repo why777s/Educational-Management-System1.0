@@ -23,6 +23,14 @@
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link href="<%=basePath%>/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+
+    <script>
+        function getHelp() {
+            alert("若需要帮助，请拨打电话XXXX-XXXX，或至办公室XXX");
+        }
+    </script>
+
     <title>学生登录页面</title>
 </head>
 <body>
@@ -73,13 +81,10 @@
                 <li>
                     <a href="<s:url action="schedule"/>" target="cont">个人信息</a>
                 </li>
-                <li>
-                    <a href="#"></a><a href="http://www.bootcss.com/p/layoutit/#">删除课程</a>
-                </li>
                 <li class="divider">
                 </li>
                 <li>
-                    <a href="#">帮助</a>
+                    <a href="#" onclick="getHelp()">帮助</a>
                 </li>
             </ul>
         </div>

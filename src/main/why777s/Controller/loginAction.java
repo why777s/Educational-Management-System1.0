@@ -8,7 +8,9 @@ import Service.impl.StudentServiceImpl;
 import Service.impl.TeacherServiceImpl;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import org.hibernate.SessionFactory;
 
+import javax.security.auth.login.Configuration;
 import java.util.Map;
 
 /**
@@ -89,6 +91,11 @@ public class loginAction extends ActionSupport {
             ActionContext actionContext = ActionContext.getContext();
             Map<String,Object> session = actionContext.getSession();
             session.put("userID",student.getSid());
+
+
+
+
+
             return SUCCESS;
         }
         else

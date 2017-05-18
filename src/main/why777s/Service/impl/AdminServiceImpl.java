@@ -6,6 +6,7 @@ import Service.AdminService;
 import com.opensymphony.xwork2.ActionContext;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.transaction.annotation.Transactional;
+import other.MD5;
 
 import javax.servlet.http.HttpSession;
 
@@ -28,7 +29,15 @@ public class AdminServiceImpl implements AdminService {
         }else {
             System.out.println("该管理员工号为:"+ad.getAdminId());
             System.out.println("姓名为:"+ad.getAdminName());
-            return ad.getPassword().equals(admin.getPassword());
+//            return ad.getPassword().equals(admin.getPassword());
+            try{
+                String new_tstr = new MD5().getMD5(admin.getPassword());
+                if (new_tstr.equals(ad.getPassword()))
+                    return true;
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            return false;
         }
     }
 

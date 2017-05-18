@@ -23,6 +23,15 @@
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link href="<%=basePath%>/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <script>
+        function getHelp() {
+            alert("若需要帮助，请拨打电话XXXX-XXXX，或至办公室XXX");
+        }
+    </script>
+
+
+
     <title>管理员登录页面</title>
 </head>
 <body>
@@ -80,7 +89,6 @@
                 </li>
 
                 <li><a href="<s:url action="addC"/>" target="cont">课程添加</a></li>
-                <li><a>课程删除</a></li>
 
                 <li class="nav-header">
                     教师管理
@@ -99,7 +107,7 @@
                 <li class="divider">
                 </li>
                 <li>
-                    <a href="#">帮助</a>
+                    <a href="#" onclick="getHelp()">帮助</a>
                 </li>
             </ul>
         </div>

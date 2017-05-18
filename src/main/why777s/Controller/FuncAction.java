@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
 import java.util.List;
 
 /**
@@ -192,24 +193,31 @@ public class FuncAction extends ActionSupport {
         selectCoursePK.setCid(tklist.getCid());
         selectCoursePK.setSemester("2016-2017 春");
 
-
-
+        Course course = courseService.get_Course(tklist.getCid());
         try{
-        SelectCourse selectCourse1 = selectCourseService.get_selectCourse(selectCoursePK);
-        Student student = studentService.get_stu((String)session.getAttribute("userID"));
-        System.out.println("学生本来学分："+student.getScredit());
-        student.setScredit(student.getScredit()-selectCourse1.getCourseByCid().getCcredit());
-        System.out.println("退课后的学分:"+student.getScredit());
-        studentService.update_stu(student);
         selectCourseService.deletedelete(selectCoursePK);
-
         scList = selectCourseService.get_all_ById();
-
+            message="退课成功";
         }catch (Exception e){
             e.printStackTrace();
             message = "退课失败";
         }
-        message="退课成功";
+
+        if (message.equals("退课成功")){
+//                SelectCourse selectCourse1 = selectCourseService.get_selectCourse(selectCoursePK);
+                Student student = studentService.get_stu((String)session.getAttribute("userID"));
+                System.out.println("学生本来学分："+student.getScredit());
+//                System.out.println(selectCourse1.getCourseByCid().getCcredit());
+                student.setScredit(student.getScredit()-course.getCcredit());
+                System.out.println("退课后的学分:"+student.getScredit());
+                studentService.update_stu(student);
+
+                try{
+                studentService.subTuitionProc((String)session.getAttribute("userID"),course.getCcredit());
+                }catch (Exception e){
+                    message ="存储过程调用失败";
+                }
+        }
         return SUCCESS;
     }
 
@@ -241,7 +249,8 @@ public class FuncAction extends ActionSupport {
         selectCoursePK.setTid(kklist.getTid());
         selectCoursePK.setCid(kklist.getCid());
         selectCoursePK.setSemester("2016-2017 春");
-            System.out.println("开始选课处理！！！");
+
+        System.out.println("开始选课处理！！！");
         System.out.println(selectCourse.getSemester());
         System.out.println(selectCourse.getSid());
         System.out.println(selectCourse.getCid());
@@ -258,21 +267,28 @@ public class FuncAction extends ActionSupport {
 
         try {
             selectCourseService.save(selectCourse);
-
-            SelectCourse selectCourse1 = selectCourseService.get_selectCourse(selectCoursePK);
-
-            Student student = studentService.get_stu((String)session.getAttribute("userID"));
-            System.out.println("学生本来学分："+student.getScredit());
-            System.out.println(selectCourse1.getCourseByCid().getCcredit());
-            student.setScredit(student.getScredit()+selectCourse1.getCourseByCid().getCcredit());
-            System.out.println("选课后的学分:"+student.getScredit());
-            studentService.update_stu(student);
+            message="选课成功";
         }catch (Exception e){
             e.printStackTrace();
-            message = "选课失败";
+            message = "选课失败！！！";
             return ERROR;
         }
-        message="选课成功";
+        if (message.equals("选课成功")) {
+            SelectCourse selectCourse1 = selectCourseService.get_selectCourse(selectCoursePK);
+            Student student = studentService.get_stu((String) session.getAttribute("userID"));
+            System.out.println("学生本来学分：" + student.getScredit());
+            System.out.println(selectCourse1.getCourseByCid().getCcredit());
+            student.setScredit(student.getScredit() + selectCourse1.getCourseByCid().getCcredit());
+            System.out.println("选课后的学分:" + student.getScredit());
+            studentService.update_stu(student);
+            try{
+                studentService.addTuitionProc(ssid,selectCourse1.getCourseByCid().getCcredit());
+            }catch (Exception  e){
+                e.printStackTrace();
+                message = "存储过程调用失败";
+            }
+        }
+
         return SUCCESS;
     }
 
